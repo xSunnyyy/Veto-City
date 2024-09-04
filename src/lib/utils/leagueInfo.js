@@ -6,11 +6,8 @@ export const dynasty = true; // true for dynasty leagues, false for redraft and 
 export const enableBlog = false; // requires VITE_CONTENTFUL_ACCESS_TOKEN and VITE_CONTENTFUL_SPACE environment variables
 
 /*   STEP 2   */
-// export const homepageText = `
-// <div style="text-align: center;">
-//   <p>For the past 13 years, the fantasy football league known as Veto City has been more than just a game—it's been a tradition, a rite of passage, and a source of endless memories for its members. What started as a small group of friends with a shared passion for football has evolved into a tight-knit community. Over the years, some friends have joined the league while others have left, but the core group has remained steadfast, growing closer with each passing season. The league's name, Veto City, reflects its competitive spirit and the many heated debates that have taken place over trades, waiver pickups, and, of course, the infamous veto power. These spirited disagreements have only deepened the camaraderie among the group, solidifying Veto City as a cornerstone of their friendships.</p>
-//   <p>In the early days, the punishments for finishing last in the league were legendary—ranging from public embarrassments to outrageous dares that would test even the most daring member's limits. The punishments were a source of both dread and motivation, driving each participant to strategize and fight for every point. However, as the years have passed and the members have grown older, the once-insane punishments have mellowed, reflecting the group's evolving priorities and more mature outlook on life. Now, while the competitive fire still burns bright, the league has shifted to a more relaxed and enjoyable experience. The focus has turned toward the fun of the game, the thrill of victory, and the joy of staying connected with old friends. Veto City remains a cherished part of their lives, a testament to the enduring bonds that fantasy football has helped forge.</p>
-// </div>
+export const homepageText = `
+<p>Dynasty Gurus</p>
 `;
 
 /*   STEP 3   */
