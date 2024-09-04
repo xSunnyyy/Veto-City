@@ -123,11 +123,11 @@
         <h4 class="noUnderscore clickable" on:click={() => goToSection(fourOne)}>4.1 Playoffs</h4>
 
 
-    <h3 class="noUnderscore clickable" on:click={() => goToSection(seven)}>Section 7: League Finances</h3>
+    <h3 class="noUnderscore clickable" on:click={() => goToSection(seven)}>Section 5: League Finances</h3>
     
-        <h4 class="noUnderscore clickable" on:click={() => goToSection(sevenOne)}>7.1 League Dues</h4>
-        <h4 class="noUnderscore clickable" on:click={() => goToSection(sixTwo)}>7.2 Payout</h4>
-        <h4 class="noUnderscore clickable" on:click={() => goToSection(sixThree)}>7.3 Raising Dues</h4>
+        <h4 class="noUnderscore clickable" on:click={() => goToSection(sevenOne)}>5.1 League Dues</h4>
+        <h4 class="noUnderscore clickable" on:click={() => goToSection(sixTwo)}>5.2 Payout</h4>
+        <h4 class="noUnderscore clickable" on:click={() => goToSection(sixThree)}>5.3 Raising Dues</h4>
     
     
     <hr />
@@ -218,21 +218,19 @@
     <h3 bind:this={fourOne}>4.1 Playoffs</h3>
     <p>At the end of the season 6 teams will make the playoffs. The first round of playoffs will commence in week 15.</p>
     
-    <h2 class="sectionHeading" bind:this={five}>Section 5 Tanking Policy</h2>
-    
     <h2 class="sectionHeading" bind:this={seven}>Section 7 League Finances</h2>
     
-    <h3 bind:this={sevenOne}>7.1 League Dues</h3>
+    <h3 bind:this={sevenOne}>5.1 League Dues</h3>
     <p>League dues are set at {dues}$. Dues are collected via Zelle/Venmo. All managers must be fully paid up before the start of regular season.</p>
     
-    <h3 bind:this={sevenTwo}>7.2 Payout</h3>
+    <h3 bind:this={sevenTwo}>5.2 Payout</h3>
     <p>League payout is structured as follows:</p>
     <ul>
         <li>1st place: {dues * 9}$</li>
         <li>Dinner: {dues * 3}$</li>
     </ul>
     
-    <h3 bind:this={sevenThree}>7.3 Raising Dues</h3>
+    <h3 bind:this={sevenThree}>5.3 Raising Dues</h3>
     <p>A ⅔ majority vote is required in order to raise league dues. In the event that a manager is no longer financially comfortable with the buyin, finding a co-manager to split the cost is reccomended.</p>
 
 </div>
