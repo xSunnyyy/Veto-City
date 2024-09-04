@@ -123,11 +123,16 @@
         <h4 class="noUnderscore clickable" on:click={() => goToSection(fourOne)}>4.1 Playoffs</h4>
 
 
-    <h3 class="noUnderscore clickable" on:click={() => goToSection(seven)}>Section 5: League Finances</h3>
+    <h3 class="noUnderscore clickable" on:click={() => goToSection(five)}>Section 5: League Finances</h3>
     
-        <h4 class="noUnderscore clickable" on:click={() => goToSection(sevenOne)}>5.1 League Dues</h4>
-        <h4 class="noUnderscore clickable" on:click={() => goToSection(sixTwo)}>5.2 Payout</h4>
-        <h4 class="noUnderscore clickable" on:click={() => goToSection(sixThree)}>5.3 Raising Dues</h4>
+        <h4 class="noUnderscore clickable" on:click={() => goToSection(fiveOne)}>5.1 League Dues</h4>
+        <h4 class="noUnderscore clickable" on:click={() => goToSection(fiveTwo)}>5.2 Payout</h4>
+        <h4 class="noUnderscore clickable" on:click={() => goToSection(fiveThree)}>5.3 Raising Dues</h4>
+
+    <h3 class="noUnderscore clickable" on:click={() => goToSection(six)}>Section 6 Sacko</h3>
+    
+        <h4 class="noUnderscore clickable" on:click={() => goToSection(sixOne)}>6.1 Sacko Rankings</h4>
+        <h4 class="noUnderscore clickable" on:click={() => goToSection(sixTwo)}>6.2 Sacko Punishment</h4>
     
     
     <hr />
@@ -220,17 +225,26 @@
     
     <h2 class="sectionHeading" bind:this={seven}>Section 5 League Finances</h2>
     
-    <h3 bind:this={sevenOne}>5.1 League Dues</h3>
+    <h3 bind:this={fiveOne}>5.1 League Dues</h3>
     <p>League dues are set at {dues}$. Dues are collected via Zelle/Venmo. All managers must be fully paid up before the start of regular season.</p>
     
-    <h3 bind:this={sevenTwo}>5.2 Payout</h3>
+    <h3 bind:this={fiveTwo}>5.2 Payout</h3>
     <p>League payout is structured as follows:</p>
     <ul>
-        <li>1st place: {dues * 9}$</li>
-        <li>Dinner: {dues * 3}$</li>
+        <li>1st place: {dues * 6}$</li>
+        <li>Dinner: {dues * 6}$</li>
     </ul>
     
-    <h3 bind:this={sevenThree}>5.3 Raising Dues</h3>
+    <h3 bind:this={fiveThree}>5.3 Raising Dues</h3>
     <p>A ⅔ majority vote is required in order to raise league dues. In the event that a manager is no longer financially comfortable with the buyin, finding a co-manager to split the cost is reccomended.</p>
+
+    <h2 class="sectionHeading" bind:this={six}>Section 6 Sacko</h2>
+    
+    <h3 bind:this={sixOne}>6.1 Sacko Rankings</h3>
+    <p>11th and 12th place will play each other 3 weeks straight (week 15, 16 and 17) Only if they have the exact same record</p>
+
+    <h3 bind:this={sixTwo}>6.2 Sacko Punishment</h3>
+    <p>$200 to the league to use for swag.</p>
+    
 
 </div>
