@@ -218,7 +218,7 @@
     <h3 bind:this={fourOne}>4.1 Playoffs</h3>
     <p>At the end of the season 6 teams will make the playoffs. The first round of playoffs will commence in week 15.</p>
     
-    <h2 class="sectionHeading" bind:this={seven}>Section 7 League Finances</h2>
+    <h2 class="sectionHeading" bind:this={seven}>Section 5 League Finances</h2>
     
     <h3 bind:this={sevenOne}>5.1 League Dues</h3>
     <p>League dues are set at {dues}$. Dues are collected via Zelle/Venmo. All managers must be fully paid up before the start of regular season.</p>
