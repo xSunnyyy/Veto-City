@@ -7,7 +7,7 @@
 	const owner = transaction.rosters[0];
 
 	const getAvatar = (pos, player) => {
-		if (pos == 'DEF') {
+		if (pos === 'DEF') {
 			return `background-image: url(https://sleepercdn.com/images/team_logos/nfl/${player.toLowerCase()}.png)`;
 		}
 		return `background-image: url(https://sleepercdn.com/content/nfl/players/thumb/${player}.jpg), url(https://sleepercdn.com/images/v2/icons/player_default.webp)`;
@@ -19,53 +19,56 @@
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		max-width: 320px;
-		margin: 1rem auto;
-		padding: 1rem;
-		border-radius: 1.2rem;
-		background: rgba(255, 255, 255, 0.08);
-		backdrop-filter: blur(10px);
-		-webkit-backdrop-filter: blur(10px);
-		border: 1px solid rgba(255, 255, 255, 0.15);
-		box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+		max-width: 300px;
+		margin: 0.8rem auto;
+		padding: 0.9rem;
+		border-radius: 1rem;
+		background: #f8f8f8;
+		border: 1px solid #ddd;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 		color: #000;
-		overflow: hidden;
-		transition: all 0.3s ease;
+		font-size: 0.85rem;
 	}
 
 	.name {
 		position: relative;
-		padding-left: 48px;
+		padding-left: 44px;
 		margin-bottom: 0.5rem;
 	}
 
 	.avatar {
-		border-radius: 50%;
-		height: 40px;
-		width: 40px;
-		border: 2px solid var(--blueTwo);
-		background-color: var(--000);
 		position: absolute;
 		left: 0;
 		top: 0;
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		border: 2px solid var(--blueTwo);
+		background-color: #fff;
 	}
 
 	.ownerName {
-		display: inline-block;
-		border-bottom: 2px solid var(--blueTwo);
-		font-weight: 500;
+		font-weight: 600;
 		font-size: 0.9rem;
+		border-bottom: 2px solid var(--blueTwo);
 	}
 
 	.currentOwner {
 		font-style: italic;
-		color: var(--aaa);
+		color: #888;
 		font-size: 0.65rem;
 		margin-left: 4px;
 	}
 
+	.bid {
+		color: #555;
+		font-style: italic;
+		margin-left: 4px;
+		font-size: 0.7rem;
+	}
+
 	.core {
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		border-top: 1px solid #eee;
 		padding-top: 0.5rem;
 	}
 
@@ -77,9 +80,9 @@
 	.details {
 		display: flex;
 		justify-content: center;
+		gap: 1.2rem;
 		flex-wrap: wrap;
-		gap: 1.5rem;
-		padding: 0.5rem 0.2rem;
+		padding: 0.4rem 0.2rem;
 	}
 
 	.player {
@@ -90,11 +93,11 @@
 	}
 
 	.playerAvatar {
-		height: 50px;
-		width: 50px;
+		width: 42px;
+		height: 42px;
 		border-radius: 50%;
 		background-position: center;
-		background-size: auto 50px;
+		background-size: auto 42px;
 		background-repeat: no-repeat;
 		border: 2px solid;
 		position: relative;
@@ -102,23 +105,9 @@
 
 	.indicator {
 		position: absolute;
-		bottom: -8px;
-		right: -8px;
-		font-size: 18px;
-	}
-
-	.nameHolder {
-		margin-top: 0.3rem;
-	}
-
-	.playerName {
-		font-size: 0.8rem;
-		font-weight: 500;
-	}
-
-	.playerInfo {
-		font-size: 0.6rem;
-		color: var(--g555);
+		bottom: -6px;
+		right: -6px;
+		font-size: 16px;
 	}
 
 	.add {
@@ -129,19 +118,26 @@
 		color: #ff2a6d;
 	}
 
-	.bid {
-		color: var(--g555);
-		font-style: italic;
-		margin-left: 4px;
-		font-size: 0.7rem;
+	.nameHolder {
+		margin-top: 0.25rem;
+	}
+
+	.playerName {
+		font-weight: 500;
+		font-size: 0.78rem;
+	}
+
+	.playerInfo {
+		font-size: 0.62rem;
+		color: #666;
 	}
 
 	.date {
 		text-align: center;
-		font-size: 0.7rem;
-		color: var(--g999);
+		font-size: 0.65rem;
+		color: #888;
 		font-style: italic;
-		margin-top: 0.6rem;
+		margin-top: 0.5rem;
 	}
 
 	.clickable {
@@ -150,8 +146,8 @@
 
 	@media (max-width: 420px) {
 		.waiverTransaction {
-			max-width: 90vw;
-			padding: 0.8rem;
+			max-width: 92vw;
+			padding: 0.7rem;
 		}
 	}
 </style>
@@ -169,7 +165,7 @@
 	<div class="name">
 		<span class="ownerName">
 			{getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).name}
-			{#if getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).name != getTeamFromTeamManagers(leagueTeamManagers, owner).name}
+			{#if getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).name !== getTeamFromTeamManagers(leagueTeamManagers, owner).name}
 				<span class="currentOwner">({getTeamFromTeamManagers(leagueTeamManagers, owner).name})</span>
 			{/if}
 			{#if transaction.moves[0][0].bid}
@@ -186,7 +182,6 @@
 	<div class="core">
 		<div class="avatarAndDetails">
 			<div class="details">
-				<!-- Added Players -->
 				{#each transaction.moves.filter(m => m[0].type === 'Added') as move}
 					<div class="player">
 						<div
@@ -207,7 +202,6 @@
 					</div>
 				{/each}
 
-				<!-- Dropped Players -->
 				{#each transaction.moves.filter(m => m[0].type === 'Dropped') as move}
 					<div class="player">
 						<div
