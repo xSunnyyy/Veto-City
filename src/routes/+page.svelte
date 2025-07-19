@@ -13,7 +13,7 @@
   }
 
   .page-wrapper {
-    background: linear-gradient(135deg, #1a1a1a 0%, #121212 50%, #0a0a0a 100%), 
+    background: linear-gradient(135deg, #1a1a1a 0%, #121212 50%, #0a0a0a 100%),
                 url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
     background-size: cover;
     background-attachment: fixed;
@@ -33,7 +33,7 @@
   .hero-title {
     font-size: 2.8rem;
     font-weight: 900;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem; /* Increased spacing here */
     letter-spacing: 1px;
   }
 
@@ -47,7 +47,6 @@
     font-weight: 700;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(146, 5, 5, 0.09);
-    transition: background 0.2s, color 0.2s;
   }
 
   .cta-btn:hover {
@@ -82,15 +81,6 @@
     flex: 1 1 320px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    transition: backdrop-filter 0.4s ease, background 0.3s ease, border 0.3s ease;
-  }
-
-  .card:hover {
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15);
   }
 
   .card h2 {
