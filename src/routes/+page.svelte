@@ -9,22 +9,25 @@
     margin: 0;
     padding: 0;
     background: none;
+    font-family: system-ui, sans-serif;
   }
 
   .page-wrapper {
-    background-color: #000;
+    background: linear-gradient(135deg, #1a1a1a 0%, #121212 50%, #0a0a0a 100%), 
+                url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
+    background-size: cover;
+    background-attachment: fixed;
     min-height: 100vh;
     padding: 2rem 1rem;
   }
 
   .hero {
-    background: linear-gradient(120deg, #920505 0%, #1a1a1a 100%);
     color: #fff;
     padding: 4rem 2rem 3rem 2rem;
     text-align: center;
     border-radius: 2rem;
     margin-bottom: 2.5rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   }
 
   .hero-title {
@@ -63,14 +66,12 @@
   }
 
   .card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 1.2rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    color: #fff;
     padding: 1.2rem 1rem;
-    transition: box-shadow 0.2s, border-color 0.2s;
     width: 100%;
     max-width: 340px;
     display: flex;
@@ -79,12 +80,17 @@
     align-items: stretch;
     font-size: 0.94rem;
     flex: 1 1 320px;
-    color: #fff;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: backdrop-filter 0.4s ease, background 0.3s ease, border 0.3s ease;
   }
 
   .card:hover {
-    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15);
   }
 
   .card h2 {
@@ -131,16 +137,19 @@
   <div class="sections">
     <div class="card">
       <div class="card-content">
+        <h2>Power Rankings</h2>
         <PowerRankings />
       </div>
     </div>
     <div class="card">
       <div class="card-content">
+        <h2>Recent Waiver Moves</h2>
         <WaiverTransactions />
       </div>
     </div>
     <div class="card">
       <div class="card-content">
+        <h2>Recent Trades</h2>
         <TradeTransactions />
       </div>
     </div>
