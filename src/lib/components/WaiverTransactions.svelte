@@ -25,7 +25,6 @@
   <LinearProgress indeterminate />
 {:else}
   {#if transactions.waivers.length}
-    <h5>Recent Waiver Moves</h5>
     {#each transactions.waivers as transaction}
       <WaiverTransaction {players} {transaction} {leagueTeamManagers} />
     {/each}
