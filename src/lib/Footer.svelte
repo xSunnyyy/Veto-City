@@ -46,21 +46,23 @@
 
 <style>
 	footer {
+		background: rgba(18, 18, 18, 0.6);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 		width: 100%;
 		display: block;
 		position: absolute;
 		bottom: 0;
 		z-index: 1;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
 		padding: 30px 0 60px;
 		text-align: center;
-		color: #ddd;
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		color: #ccc;
+	}
 
-		/* Glassmorphism background */
-		background: rgba(18, 18, 18, 0.4);
-		backdrop-filter: blur(12px);
-		-webkit-backdrop-filter: blur(12px);
-		box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
+	.footerSpacer {
+		height: var(--footerHeight);
 	}
 
 	#navigation {
@@ -77,9 +79,9 @@
 		display: inline;
 	}
 
-	#navigation li:not(:first-child):before {
+	#navigation li:not(:first-child)::before {
 		content: " | ";
-		color: #999;
+		color: #666;
 	}
 
 	.navLink {
@@ -87,15 +89,15 @@
 		cursor: pointer;
 		padding: 6px 10px;
 		color: #eee;
-		transition: color 0.2s ease;
+		transition: color 0.3s ease;
 	}
 
 	.navLink:hover {
-		color: #ff4b4b;
+		color: #ff4e4e;
 	}
 
 	.updateNotice {
-		color: #aaa;
+		color: #999;
 		font-style: italic;
 		font-size: 0.8em;
 		margin-top: 0;
@@ -107,16 +109,21 @@
 <footer bind:this={el}>
 	{#if outOfDate}
 		<p class="updateNotice">
-			There is an update available for your League Page.
-			<a href="https://github.com/nmelhado/league-page/blob/master/TRAINING_WHEELS.md#iv-updates">Follow the Update Instructions</a> to get all of the newest features!
+			There is an update available for your League Page. 
+			<a href="https://github.com/nmelhado/league-page/blob/master/TRAINING_WHEELS.md#iv-updates">
+				Follow the Update Instructions
+			</a> to get all of the newest features!
 		</p>
 	{/if}
 	{#if managersOutOfDate}
 		<p class="updateNotice">
 			Your managers page needs an update,
-			<a href="https://github.com/nmelhado/league-page/blob/master/TRAINING_WHEELS.md#2-add-managers">please follow the instructions</a> to get the most up-to-date experience.
+			<a href="https://github.com/nmelhado/league-page/blob/master/TRAINING_WHEELS.md#2-add-managers">
+				please follow the instructions
+			</a> to get the most up-to-date experience.
 		</p>
 	{/if}
+
 	<div id="navigation">
 		<ul>
 			{#each tabs as tab}
@@ -126,7 +133,7 @@
 					{#each tab.children as child}
 						{#if child.label != "Managers" || managers.length > 0}
 							{#if child.label == "Go to Sleeper"}
-								<li><div class="navLink" on:click={() => (window.location = child.dest)}>{child.label}</div></li>
+								<li><div class="navLink" on:click={() => window.location = child.dest}>{child.label}</div></li>
 							{:else}
 								<li><div class="navLink" on:click={() => goto(child.dest)}>{child.label}</div></li>
 							{/if}
