@@ -74,9 +74,8 @@
 <div class="hero">
   <div class="hero-title">Welcome to Veto City</div>
   <div class="hero-subtitle">
-    Your hub for competitive fantasy football. Dive into league stats, rankings, news, and more!
   </div>
-  <a href="/constitution"><button class="cta-btn">View League Constitution</button></a>
+  <a href="/constitution"><button class="cta-btn">View League Drafts</button></a>
 </div>
 
 <div class="sections">
