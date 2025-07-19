@@ -1,17 +1,16 @@
 <script>
-  import { PowerRankings, Transactions } from '$lib/components';
-  // You may need to adjust PowerRankings if it doesn't support a "carousel" out of the box
+  import { PowerRankings } from '$lib/components';
+  import Transactions from '$lib/Transactions/Transactions.svelte';
 
-  // For the carousel, we'll use a simple implementation with local state.
+  // Carousel state for PowerRankings
   let currentStart = 0;
   const visibleCount = 3;
 
-  // Dummy data - replace with your real Power Rankings data or props as needed:
-  // let powerRankingsData = [...] 
+  // --- Filtering logic for Transactions ---
+  // Assume Transactions can accept a 'type' prop or similar to filter trades/waivers
+  // If not, you'll need to implement filtering inside Transactions or make wrapper components
 
-  // Simulate fetching/receiving data (assuming PowerRankings is a list/array):
-  // If PowerRankings is a component that renders all, you may need to create
-  // a new CarouselPowerRankings component that accepts "start" and "count" props.
+  // Example types: "trade", "waiver"
 </script>
 
 <style>
@@ -92,13 +91,7 @@
 
 <div class="carousel-container">
   <div class="carousel-title">Power Rankings</div>
-  <!-- 
-    If PowerRankings is a Svelte component that renders all rankings and can't accept "slice" props,
-    you will need to refactor it to accept `start` and `count` props, or extract the data and render manually.
-    Otherwise, this is pseudocode for a carousel.
-  -->
   <PowerRankings start={currentStart} count={visibleCount} />
-
   <div class="carousel-controls">
     <button class="carousel-btn" on:click={() => currentStart = Math.max(0, currentStart - 1)} disabled={currentStart === 0} aria-label="Previous">
       &#8592;
@@ -111,7 +104,11 @@
 
 <div class="sections">
   <div class="card-small">
-    <h2 style="font-size: 1.3rem; color: #920505; margin-bottom: 0.7rem;">Recent Transactions</h2>
-    <Transactions />
+    <h2 style="font-size: 1.2rem; color: #920505; margin-bottom: 0.7rem;">Recent Trades</h2>
+    <Transactions type="trade" />
+  </div>
+  <div class="card-small">
+    <h2 style="font-size: 1.2rem; color: #920505; margin-bottom: 0.7rem;">Recent Waiver Moves</h2>
+    <Transactions type="waiver" />
   </div>
 </div>
