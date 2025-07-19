@@ -5,6 +5,11 @@
 </script>
 
 <style>
+  :global(body) {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+  }
   .hero {
     background: linear-gradient(120deg, #920505 0%, #1a1a1a 100%);
     color: #fff;
