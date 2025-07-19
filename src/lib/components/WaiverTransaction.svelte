@@ -28,7 +28,7 @@
 		-webkit-backdrop-filter: blur(10px);
 		border: 1px solid rgba(255, 255, 255, 0.15);
 		box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
-		color: #fff;
+		color: #000;
 		overflow: hidden;
 		transition: all 0.3s ease;
 	}
@@ -44,7 +44,7 @@
 		height: 40px;
 		width: 40px;
 		border: 2px solid var(--blueTwo);
-		background-color: var(--fff);
+		background-color: var(--000);
 		position: absolute;
 		left: 0;
 		top: 0;
