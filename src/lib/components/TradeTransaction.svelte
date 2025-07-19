@@ -1,10 +1,17 @@
 <script>
   import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
-  import TradeMove from './TradeMove.svelte';
 
   export let trade, players, leagueTeamManagers;
+
   const teamA = trade.rosters[0];
   const teamB = trade.rosters[1];
+
+  const getAvatar = (pos, playerId) => {
+    if (pos === 'DEF') {
+      return `https://sleepercdn.com/images/team_logos/nfl/${playerId.toLowerCase()}.png`;
+    }
+    return `https://sleepercdn.com/content/nfl/players/thumb/${playerId}.jpg`;
+  };
 </script>
 
 <style>
@@ -59,6 +66,10 @@
 
   .move-column {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
   }
 
   .arrow {
@@ -69,26 +80,39 @@
     line-height: 1.6;
   }
 
+  .player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .player img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+  }
+
+  .player-name {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 0.3rem;
+  }
+
+  .player-info {
+    font-size: 0.65rem;
+    color: #666;
+    text-align: center;
+  }
+
   .date {
     margin-top: 0.75rem;
     font-size: 0.75rem;
     font-style: italic;
     color: #777;
     text-align: center;
-  }
-
-  @media (max-width: 500px) {
-    .trade-card {
-      padding: 0.75rem;
-    }
-
-    .team-name {
-      font-size: 0.8rem;
-    }
-
-    .arrow {
-      font-size: 1rem;
-    }
   }
 </style>
 
@@ -107,13 +131,33 @@
   <div class="moves">
     <div class="move-column">
       {#each trade.moves.filter(m => m[0]?.roster_id === teamA) as move}
-        <TradeMove move={move} players={players} />
+        <div class="player">
+          <img src={getAvatar(players[move[0].player].pos, move[0].player)} alt="Player" />
+          <div class="player-name">
+            {players[move[0].player].fn} {players[move[0].player].ln}
+          </div>
+          <div class="player-info">
+            {players[move[0].player].pos}
+            {#if players[move[0].player].t} - {players[move[0].player].t}{/if}
+          </div>
+        </div>
       {/each}
     </div>
+
     <div class="arrow">⇄</div>
+
     <div class="move-column">
       {#each trade.moves.filter(m => m[0]?.roster_id === teamB) as move}
-        <TradeMove move={move} players={players} />
+        <div class="player">
+          <img src={getAvatar(players[move[0].player].pos, move[0].player)} alt="Player" />
+          <div class="player-name">
+            {players[move[0].player].fn} {players[move[0].player].ln}
+          </div>
+          <div class="player-info">
+            {players[move[0].player].pos}
+            {#if players[move[0].player].t} - {players[move[0].player].t}{/if}
+          </div>
+        </div>
       {/each}
     </div>
   </div>
