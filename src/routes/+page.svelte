@@ -18,12 +18,13 @@
   }
 
   .hero {
+    background: linear-gradient(120deg, #920505 0%, #1a1a1a 100%);
     color: #fff;
     padding: 4rem 2rem 3rem 2rem;
     text-align: center;
     border-radius: 2rem;
     margin-bottom: 2.5rem;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   }
 
   .hero-title {
@@ -62,11 +63,14 @@
   }
 
   .card {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-radius: 1.2rem;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     padding: 1.2rem 1rem;
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s, border-color 0.2s;
     width: 100%;
     max-width: 340px;
     display: flex;
@@ -75,6 +79,12 @@
     align-items: stretch;
     font-size: 0.94rem;
     flex: 1 1 320px;
+    color: #fff;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
   }
 
   .card h2 {
@@ -84,15 +94,12 @@
     width: 100%;
   }
 
-  .card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-  }
-
   .card-content {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    color: #fff;
   }
 
   @media (max-width: 1100px) {
