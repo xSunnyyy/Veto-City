@@ -25,7 +25,6 @@
   <LinearProgress indeterminate />
 {:else}
   {#if transactions.trades.length}
-    <h5>Recent Trades</h5>
     {#each transactions.trades as transaction}
       <TradeTransaction {players} {transaction} {leagueTeamManagers} />
     {/each}
