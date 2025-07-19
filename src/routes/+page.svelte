@@ -1,6 +1,6 @@
 <script>
-  import { PowerRankings, HomePost, Transactions } from '$lib/components';
-  // Add more imports as needed for additional cards/sections
+  import { PowerRankings, Transactions } from '$lib/components';
+  // HomePost import removed, as blog card will be removed
 </script>
 
 <style>
@@ -77,10 +77,6 @@
 </div>
 
 <div class="sections">
-  <div class="card">
-    <h2>Latest Blog</h2>
-    <HomePost />
-  </div>
   <div class="card">
     <h2>Power Rankings</h2>
     <PowerRankings />
