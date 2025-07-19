@@ -25,7 +25,6 @@
     border-radius: 2rem;
     margin-bottom: 2.5rem;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    background-color: #1e1e1e;
   }
 
   .hero-title {
