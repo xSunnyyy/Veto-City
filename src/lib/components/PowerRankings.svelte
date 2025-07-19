@@ -19,6 +19,7 @@
   </div>
 {:then [nflState, rostersData, leagueTeamManagers, leagueData, playersInfo]}
   {#if leagueData.status !== 'pre_draft' && leagueData.status !== 'complete'}
+    <h6><center>Power Rankings</center></h6>
     <PowerRankingsDisplay
       {nflState}
       {rostersData}
