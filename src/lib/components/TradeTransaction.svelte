@@ -20,7 +20,7 @@
 		-webkit-backdrop-filter: blur(10px);
 		border: 1px solid rgba(255, 255, 255, 0.15);
 		box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
-		color: #fff;
+		color: #000;
 		overflow: hidden;
 	}
 
@@ -34,7 +34,7 @@
 		height: 36px;
 		width: 36px;
 		border: 2px solid var(--blueOne);
-		background-color: var(--fff);
+		background-color: var(--000);
 	}
 
 	.ownerName {
