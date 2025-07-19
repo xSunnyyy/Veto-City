@@ -78,11 +78,6 @@
   <a href="/drafts"><button class="cta-btn">View League Drafts</button></a>
 </div>
 
-<div class="sections">
-  <div class="card">
-    <h2>Latest Blog</h2>
-    <HomePost />
-  </div>
   <div class="card">
     <h2>Power Rankings</h2>
     <PowerRankings />
