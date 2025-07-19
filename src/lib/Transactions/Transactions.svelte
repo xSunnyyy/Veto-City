@@ -1,98 +1,95 @@
 <script>
-	import { goto } from '$app/navigation';
-	import { getLeagueTransactions, getLeagueTeamManagers, loadPlayers, waitForAll } from '$lib/utils/helper';
-	import LinearProgress from '@smui/linear-progress';
-	import { onMount } from 'svelte';
-	import TradeTransaction from './TradeTransaction.svelte';
-	import WaiverTransaction from './WaiverTransaction.svelte';
+  export let type = null; // "trade", "waiver", or null for all
 
-	let loading = true;
-	let players;
-	let transactions;
-    let leagueTeamManagers;
+  // Example: Fetch or receive all transactions as a prop or from a helper
+  // You may need to adjust this based on your actual data source
+  import { onMount } from "svelte";
+  import LinearProgress from '@smui/linear-progress';
+  import { getTransactions } from "$lib/utils/helper"; // Adjust path as needed
 
-	onMount(async () => {
-		const [transactionsData, playersData, leagueTeamManagersData] = await waitForAll(getLeagueTransactions(true),loadPlayers(null), getLeagueTeamManagers());
-		players = playersData.players;
-		transactions = transactionsData.transactions;
-        leagueTeamManagers = leagueTeamManagersData;
-		loading = false;
+  let transactions = [];
+  let loading = true;
+  let error = null;
 
-		if(transactionsData.stale) {
-			const newTransactions = await getLeagueTransactions(true, true);
-			transactions = newTransactions.transactions;
-		}
+  onMount(async () => {
+    try {
+      transactions = await getTransactions();
+    } catch (e) {
+      error = e;
+    } finally {
+      loading = false;
+    }
+  });
 
-		if(playersData.stale) {
-			const newPlayersData = await loadPlayers(true);
-			players = newPlayersData.players;
-		}
-	})
+  // Filtering logic
+  $: filteredTransactions = type
+    ? transactions.filter(tx => tx.type === type)
+    : transactions;
 </script>
 
 <style>
-	.transactions {
-		position: relative;
-		width: 100%;
-		z-index: 1;
-	}
-
-	p {
-		text-align: center;
-	}
-
-	h5 {
-		text-align: center;
-		margin: 10px auto 16px;
-	}
-
-	.link {
-		cursor: pointer;
-		color: #888;
-		padding: 10px 20px;
-		margin-bottom: 10px;
-	}
-
-	.link:hover {
-		color: #00316b;
-	}
-
-	.nothingYet {
-		margin: 5em 0;
-	}
+  .loading {
+    display: block;
+    width: 95%;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  ul {
+    padding-left: 1.2em;
+    margin: 0.4em 0;
+    font-size: 1em;
+  }
+  li {
+    margin-bottom: 0.4em;
+    line-height: 1.4;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.3em;
+  }
+  .empty {
+    color: #888;
+    text-align: left;
+    font-size: 0.97em;
+    margin: 0.8em 0 0.2em 0;
+  }
 </style>
 
-<div class="transactions">
-	{#if loading}
-		<p>Loading league transactions...</p>
-		<LinearProgress indeterminate />
-	{:else}
-		<!-- waiver -->
-		{#if transactions.waivers.length}
-			<h5>Recent Waiver Moves</h5>
-			{#each transactions.waivers as transaction }
-				<WaiverTransaction {players} {transaction} {leagueTeamManagers} />
-			{/each}
-
-			<p onclick={() => goto("/transactions?show=waiver&query=&page=1")} class="link">( view more )</p>
-		{:else}
-			<p class="nothingYet">No waiver moves have been made yet...</p>
-		{/if}
-
-		{#if transactions.waivers.length && transactions.trades.length}
-			<br />
-		{/if}
-
-		<!-- trades -->
-		{#if transactions.trades.length}
-			<h5>Recent Trades</h5>
-			{#each transactions.trades as transaction }
-				<TradeTransaction {players} {transaction} {leagueTeamManagers} />
-			{/each}
-
-			<p onclick={() => goto("/transactions?show=trade&query=&page=1")} class="link">( view more )</p>
-		{:else}
-			<p class="nothingYet">No trades have been made yet...</p>
-		{/if}
-	{/if}
-</div>
+{#if loading}
+  <div class="loading">
+    <LinearProgress indeterminate />
+    <div style="margin-top:0.7em;">Loading transactions...</div>
+  </div>
+{:else if error}
+  <div class="loading">
+    <span style="color:#b00;">Error loading transactions: {error.message}</span>
+  </div>
+{:else if filteredTransactions.length === 0}
+  <div class="empty">
+    {#if type === "trade"}
+      No recent trades.
+    {:else if type === "waiver"}
+      No recent waiver moves.
+    {:else}
+      No recent transactions.
+    {/if}
+  </div>
+{:else}
+  <ul>
+    {#each filteredTransactions as tx (tx.id)}
+      <li>
+        {#if tx.type === "trade"}
+          <b>Trade:</b>
+        {:else if tx.type === "waiver"}
+          <b>Waiver:</b>
+        {:else}
+          <b>{tx.type}:</b>
+        {/if}
+        <!-- Render transaction summary. Adjust based on your tx structure -->
+        {tx.summary || tx.description || tx.details || JSON.stringify(tx)}
+        <br />
+        <small style="color:#888;">
+          {tx.date ? new Date(tx.date).toLocaleString() : ""}
+        </small>
+      </li>
+    {/each}
+  </ul>
+{/if}
