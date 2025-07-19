@@ -18,74 +18,85 @@
 	.waiverTransaction {
 		display: flex;
 		flex-direction: column;
-		margin-bottom: 1em;
+		width: 100%;
+		max-width: 320px;
+		margin: 1rem auto;
+		padding: 1rem;
+		border-radius: 1.2rem;
+		background: rgba(255, 255, 255, 0.08);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+		color: #fff;
+		overflow: hidden;
+		transition: all 0.3s ease;
 	}
 
 	.name {
 		position: relative;
-	}
-
-	.core {
-		display: flex;
-		flex-direction: column;
-		border-radius: 0 0 0 40px;
-		border: 1px solid var(--ddd);
-		border-left: 2px solid var(--blueTwo);
-		border-bottom: none;
-		background-color: var(--fff);
-	}
-
-	.avatarAndDetails {
-		display: flex;
-		padding: 25px 0 0;
-		flex-direction: column;
-		justify-content: end;
+		padding-left: 48px;
+		margin-bottom: 0.5rem;
 	}
 
 	.avatar {
-		position: absolute;
-		left: 0px;
-		top: 6px;
 		border-radius: 50%;
 		height: 40px;
 		width: 40px;
 		border: 2px solid var(--blueTwo);
 		background-color: var(--fff);
+		position: absolute;
+		left: 0;
+		top: 0;
 	}
 
 	.ownerName {
 		display: inline-block;
 		border-bottom: 2px solid var(--blueTwo);
-		margin: 0 0 0 22px;
-		padding-right: 30px;
-		padding-left: 30px;
+		font-weight: 500;
+		font-size: 0.9rem;
+	}
+
+	.currentOwner {
+		font-style: italic;
+		color: var(--aaa);
+		font-size: 0.65rem;
+		margin-left: 4px;
+	}
+
+	.core {
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		padding-top: 0.5rem;
+	}
+
+	.avatarAndDetails {
+		display: flex;
+		flex-direction: column;
 	}
 
 	.details {
 		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		width: 80%;
-		padding: 0 10%;
-		gap: 2em;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 1.5rem;
+		padding: 0.5rem 0.2rem;
 	}
 
 	.player {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		text-align: center;
 	}
 
 	.playerAvatar {
-		display: inline-block;
-		vertical-align: middle;
 		height: 50px;
 		width: 50px;
+		border-radius: 50%;
 		background-position: center;
-		border: 2px solid;
-		border-radius: 100%;
-		background-repeat: no-repeat;
 		background-size: auto 50px;
+		background-repeat: no-repeat;
+		border: 2px solid;
 		position: relative;
 	}
 
@@ -97,24 +108,17 @@
 	}
 
 	.nameHolder {
-		display: flex;
-		flex-direction: column;
-		padding-left: 0.5em;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
+		margin-top: 0.3rem;
 	}
 
 	.playerName {
-		font-size: 0.8em;
-		line-height: 1em;
-		text-align: center;
+		font-size: 0.8rem;
+		font-weight: 500;
 	}
 
 	.playerInfo {
-		font-size: 0.6em;
+		font-size: 0.6rem;
 		color: var(--g555);
-		line-height: 1em;
 	}
 
 	.add {
@@ -128,40 +132,26 @@
 	.bid {
 		color: var(--g555);
 		font-style: italic;
+		margin-left: 4px;
+		font-size: 0.7rem;
 	}
 
 	.date {
+		text-align: center;
+		font-size: 0.7rem;
 		color: var(--g999);
 		font-style: italic;
-		font-size: 0.7em;
-		text-align: center;
-		margin-top: 0.7em;
-	}
-
-	.currentOwner {
-		font-style: italic;
-		color: var(--aaa);
+		margin-top: 0.6rem;
 	}
 
 	.clickable {
 		cursor: pointer;
 	}
 
-	@media (max-width: 410px) {
-		.player {
-			flex-direction: column;
-			align-items: center;
-		}
-
-		.details {
-			width: 90%;
-			padding: 0 5%;
-		}
-
-		.nameHolder {
-			margin-top: 0.5em;
-			padding-left: 0;
-			font-size: 0.9em;
+	@media (max-width: 420px) {
+		.waiverTransaction {
+			max-width: 90vw;
+			padding: 0.8rem;
 		}
 	}
 </style>
@@ -179,15 +169,11 @@
 	<div class="name">
 		<span class="ownerName">
 			{getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).name}
-			{#if
-				getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).name !=
-				getTeamFromTeamManagers(leagueTeamManagers, owner).name}
-				<span class="currentOwner">
-					({getTeamFromTeamManagers(leagueTeamManagers, owner).name})
-				</span>
+			{#if getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).name != getTeamFromTeamManagers(leagueTeamManagers, owner).name}
+				<span class="currentOwner">({getTeamFromTeamManagers(leagueTeamManagers, owner).name})</span>
 			{/if}
 			{#if transaction.moves[0][0].bid}
-				<span class="bid"> - {transaction.moves[0][0].bid}$ </span>
+				<span class="bid">- {transaction.moves[0][0].bid}$</span>
 			{/if}
 		</span>
 		<img
@@ -214,10 +200,8 @@
 								{players[move[0].player].fn} {players[move[0].player].ln}
 							</span>
 							<span class="playerInfo">
-								<span>{players[move[0].player].pos}</span>
-								{#if players[move[0].player].t}
-									- <span>{players[move[0].player].t}</span>
-								{/if}
+								{players[move[0].player].pos}
+								{#if players[move[0].player].t} - {players[move[0].player].t}{/if}
 							</span>
 						</span>
 					</div>
@@ -237,10 +221,8 @@
 								{players[move[0].player].fn} {players[move[0].player].ln}
 							</span>
 							<span class="playerInfo">
-								<span>{players[move[0].player].pos}</span>
-								{#if players[move[0].player].t}
-									- <span>{players[move[0].player].t}</span>
-								{/if}
+								{players[move[0].player].pos}
+								{#if players[move[0].player].t} - {players[move[0].player].t}{/if}
 							</span>
 						</span>
 					</div>
