@@ -27,7 +27,7 @@
       {playersInfo}
     />
   {:else}
-    <p>Power rankings will be available during the season.</p>
+    <p><center>Power rankings will be available during the season.</center></p>
   {/if}
 {:catch error}
   <p>Error loading power rankings: {error.message}</p>
