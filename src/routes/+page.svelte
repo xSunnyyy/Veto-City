@@ -75,7 +75,7 @@
   <div class="hero-title">Welcome to Veto City</div>
   <div class="hero-subtitle">
   </div>
-  <a href="/drafts"><button class="cta-btn">View League Drafts</button></a>
+  <a href="/drafts"><button class="cta-btn">View Drafts</button></a>
 </div>
 
   <div class="card">
