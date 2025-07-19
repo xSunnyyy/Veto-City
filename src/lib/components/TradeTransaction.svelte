@@ -10,16 +10,14 @@
 	.tradeTransaction {
 		display: flex;
 		flex-direction: column;
-		margin: 1rem auto;
 		width: 100%;
 		max-width: 320px;
+		margin: 1rem auto;
+		padding: 1rem;
 		border-radius: 1rem;
-		padding: 0.5rem 0.8rem;
-		background: rgba(255, 255, 255, 0.08);
-		backdrop-filter: blur(10px);
-		-webkit-backdrop-filter: blur(10px);
-		border: 1px solid rgba(255, 255, 255, 0.15);
-		box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+		background: #f8f8f8;
+		border: 1px solid #ddd;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 		color: #000;
 		overflow: hidden;
 	}
@@ -27,6 +25,8 @@
 	.name {
 		text-align: center;
 		font-size: 0.85rem;
+		font-weight: 600;
+		margin-bottom: 0.5rem;
 	}
 
 	.avatar {
@@ -34,21 +34,20 @@
 		height: 36px;
 		width: 36px;
 		border: 2px solid var(--blueOne);
-		background-color: var(--000);
+		background-color: #fff;
 	}
 
 	.ownerName {
 		display: inline-block;
 		font-weight: 500;
-		line-height: 1.1em;
+		font-size: 0.85rem;
 		margin: 0.2em;
-		font-size: 0.82rem;
-		text-align: center;
+		border-bottom: 2px solid var(--blueOne);
 	}
 
 	.currentOwner {
 		font-style: italic;
-		color: var(--aaa);
+		color: #888;
 		font-size: 0.65rem;
 	}
 
@@ -57,13 +56,11 @@
 	}
 
 	.date {
-		color: var(--g999);
+		color: #777;
 		font-style: italic;
 		font-size: 0.65rem;
 		text-align: center;
-		padding: 0.4em 0;
-		margin-top: 1em;
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		margin-top: 0.6rem;
 	}
 
 	table {
@@ -73,11 +70,7 @@
 	}
 
 	tbody {
-		border-top: 1px solid rgba(255, 255, 255, 0.12);
-	}
-
-	th {
-		padding: 0.3rem 0.2rem;
+		border-top: 1px solid #ddd;
 	}
 
 	.holder {
@@ -86,15 +79,22 @@
 		justify-content: center;
 		align-items: center;
 		height: 100%;
+		gap: 0.25rem;
+	}
+
+	th.name {
+		font-weight: 600;
+		padding-bottom: 0.5rem;
 	}
 
 	@media (max-width: 420px) {
-		.tradeTransaction {
-			max-width: 90vw;
-			padding: 0.5rem;
-		}
 		.ownerName {
-			font-size: 0.75rem;
+			font-size: 0.8rem;
+		}
+
+		.tradeTransaction {
+			max-width: 92vw;
+			padding: 0.8rem;
 		}
 	}
 </style>
@@ -107,7 +107,7 @@
 					<th
 						class="name clickable"
 						style="width: {1 / transaction.rosters.length * 100}%"
-						onclick={() =>
+						on:click={() =>
 							gotoManager({
 								year: transaction.season,
 								leagueTeamManagers,
@@ -123,10 +123,7 @@
 							/>
 							<span class="ownerName">
 								{getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).name}
-								{#if
-									getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).name !=
-									getTeamFromTeamManagers(leagueTeamManagers, owner).name
-								}
+								{#if getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).name !== getTeamFromTeamManagers(leagueTeamManagers, owner).name}
 									<br />
 									<span class="currentOwner">
 										({getTeamFromTeamManagers(leagueTeamManagers, owner).name})
