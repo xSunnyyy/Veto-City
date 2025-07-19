@@ -1,5 +1,7 @@
 <script>
-  import { PowerRankings, Transactions } from '$lib/components';
+  import { PowerRankings } from '$lib/components';
+  import WaiverTransactions from '$lib/components/WaiverTransactions.svelte';
+  import TradeTransactions from '$lib/components/TradeTransactions.svelte';
 </script>
 
 <style>
@@ -42,6 +44,7 @@
     gap: 2rem;
     margin-bottom: 2.5rem;
     width: 100%;
+    flex-wrap: wrap;
   }
 
   .card {
@@ -67,9 +70,15 @@
     width: 100%;
   }
   .card:hover {
-    box-shadow: 0 8px 24px rgba(146,5,5,0.18);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
   }
 
+  @media (max-width: 1100px) {
+    .sections {
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+  }
   @media (max-width: 900px) {
     .sections {
       flex-direction: column;
@@ -93,7 +102,9 @@
     <PowerRankings />
   </div>
   <div class="card">
-    <h2>Recent Transactions</h2>
-    <Transactions />
+    <WaiverTransactions />
+  </div>
+  <div class="card">
+    <TradeTransactions />
   </div>
 </div>
