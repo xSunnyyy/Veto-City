@@ -6,10 +6,17 @@
 
 <style>
   :global(body) {
-    background-color: #000;
     margin: 0;
     padding: 0;
+    background: none;
   }
+
+  .page-wrapper {
+    background-color: #000;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+
   .hero {
     background: linear-gradient(120deg, #920505 0%, #1a1a1a 100%);
     color: #fff;
@@ -36,7 +43,7 @@
     font-size: 1.1rem;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(146,5,5,0.09);
+    box-shadow: 0 2px 8px rgba(146, 5, 5, 0.09);
     transition: background 0.2s, color 0.2s;
   }
 
@@ -48,7 +55,7 @@
   .sections {
     display: flex;
     justify-content: center;
-    align-items: stretch; /* Ensure same height */
+    align-items: stretch;
     gap: 2rem;
     margin-bottom: 2.5rem;
     width: 100%;
@@ -58,7 +65,7 @@
   .card {
     background: #fff;
     border-radius: 1.2rem;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
     padding: 1.2rem 1rem;
     transition: box-shadow 0.2s;
     width: 100%;
@@ -68,7 +75,7 @@
     justify-content: flex-start;
     align-items: stretch;
     font-size: 0.94rem;
-    flex: 1 1 320px; /* Flex-grow for responsiveness */
+    flex: 1 1 320px;
   }
 
   .card h2 {
@@ -79,7 +86,7 @@
   }
 
   .card:hover {
-    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
   }
 
   .card-content {
@@ -109,25 +116,27 @@
   }
 </style>
 
-<div class="hero">
-  <div class="hero-title">Welcome to Veto City</div>
-  <a href="/drafts"><button class="cta-btn">View League Drafts</button></a>
-</div>
+<div class="page-wrapper">
+  <div class="hero">
+    <div class="hero-title">Welcome to Veto City</div>
+    <a href="/drafts"><button class="cta-btn">View League Drafts</button></a>
+  </div>
 
-<div class="sections">
-  <div class="card">
-    <div class="card-content">
-      <PowerRankings />
+  <div class="sections">
+    <div class="card">
+      <div class="card-content">
+        <PowerRankings />
+      </div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-content">
-      <WaiverTransactions />
+    <div class="card">
+      <div class="card-content">
+        <WaiverTransactions />
+      </div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-content">
-      <TradeTransactions />
+    <div class="card">
+      <div class="card-content">
+        <TradeTransactions />
+      </div>
     </div>
   </div>
 </div>
