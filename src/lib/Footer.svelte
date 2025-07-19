@@ -1,7 +1,4 @@
 <script>
-  import { PowerRankings } from '$lib/components';
-  import WaiverTransactions from '$lib/components/WaiverTransactions.svelte';
-  import TradeTransactions from '$lib/components/TradeTransactions.svelte';
   import { goto } from '$app/navigation';
   import { tabs } from '$lib/utils/tabs';
   import { managers } from '$lib/utils/helper';
@@ -46,94 +43,6 @@
 <svelte:window bind:innerWidth={innerWidth} />
 
 <style>
-  :global(body) {
-    margin: 0;
-    padding: 0;
-    background-color: #111;
-    font-family: system-ui, sans-serif;
-  }
-
-  .page-wrapper {
-    background-color: #111;
-    min-height: 100vh;
-    padding: 2rem 1rem;
-    padding-bottom: 6rem; /* Leave room for footer */
-  }
-
-  .hero {
-    color: #fff;
-    padding: 4rem 2rem 3rem 2rem;
-    text-align: center;
-    border-radius: 2rem;
-    margin-bottom: 2.5rem;
-    background-color: #1e1e1e;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  }
-
-  .hero-title {
-    font-size: 2.8rem;
-    font-weight: 900;
-    margin-bottom: 2rem;
-    letter-spacing: 1px;
-  }
-
-  .cta-btn {
-    background: #fff;
-    color: #920505;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.75rem 2.5rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(146, 5, 5, 0.09);
-  }
-
-  .cta-btn:hover {
-    background: #920505;
-    color: #fff;
-  }
-
-  .sections {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 2rem;
-    margin-bottom: 2.5rem;
-    width: 100%;
-    flex-wrap: wrap;
-  }
-
-  .card {
-    background-color: #f3f3f3;
-    color: #000;
-    border-radius: 1.2rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 1.2rem 1rem;
-    width: 100%;
-    max-width: 340px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    font-size: 0.94rem;
-    flex: 1 1 320px;
-  }
-
-  .card h2 {
-    font-size: 1.05rem;
-    margin-bottom: 0.6rem;
-    text-align: center;
-    width: 100%;
-  }
-
-  .card-content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-
   footer {
     background-color: #1e1e1e;
     width: 100%;
@@ -182,65 +91,24 @@
     font-size: 0.8em;
     margin-top: 0;
   }
-
-  @media (max-width: 1100px) {
-    .sections {
-      flex-wrap: wrap;
-      gap: 1.2rem;
-    }
-  }
-
-  @media (max-width: 900px) {
-    .sections {
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .card {
-      max-width: 95vw;
-    }
-  }
 </style>
 
-<div class="page-wrapper">
-  <div class="hero">
-    <div class="hero-title">Welcome to Veto City</div>
-    <a href="/drafts"><button class="cta-btn">View League Drafts</button></a>
-  </div>
-
-  <div class="sections">
-    <div class="card">
-      <div class="card-content">
-        <h2>Power Rankings</h2>
-        <PowerRankings />
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-content">
-        <h2>Recent Waiver Moves</h2>
-        <WaiverTransactions />
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-content">
-        <h2>Recent Trades</h2>
-        <TradeTransactions />
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Footer Spacer for layout -->
 <div class="footerSpacer" style="height: {footerHeight}px;" />
 
-<!-- Footer -->
 <footer bind:this={el}>
   {#if outOfDate}
-    <p class="updateNotice">There is an update available for your League Page. <a href="https://github.com/nmelhado/league-page/blob/master/TRAINING_WHEELS.md#iv-updates">Follow the Update Instructions</a> to get all of the newest features!</p>
+    <p class="updateNotice">
+      There is an update available for your League Page. 
+      <a href="https://github.com/nmelhado/league-page/blob/master/TRAINING_WHEELS.md#iv-updates">Follow the Update Instructions</a> 
+      to get all of the newest features!
+    </p>
   {/if}
   {#if managersOutOfDate}
-    <p class="updateNotice">Your managers page needs an update, <a href="https://github.com/nmelhado/league-page/blob/master/TRAINING_WHEELS.md#2-add-managers">please follow the instructions</a> to get the most up-to-date experience.</p>
+    <p class="updateNotice">
+      Your managers page needs an update, 
+      <a href="https://github.com/nmelhado/league-page/blob/master/TRAINING_WHEELS.md#2-add-managers">please follow the instructions</a> 
+      to get the most up-to-date experience.
+    </p>
   {/if}
   <div id="navigation">
     <ul>
