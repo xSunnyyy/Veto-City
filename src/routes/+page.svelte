@@ -18,12 +18,6 @@
     margin-bottom: 1rem;
     letter-spacing: 1px;
   }
-  .hero-subtitle {
-    font-size: 1.25rem;
-    font-weight: 400;
-    margin-bottom: 2rem;
-    opacity: 0.93;
-  }
   .cta-btn {
     background: #fff;
     color: #920505;
@@ -42,10 +36,12 @@
   }
 
   .sections {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     gap: 2rem;
     margin-bottom: 2.5rem;
+    width: 100%;
   }
 
   .card {
@@ -60,11 +56,15 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     font-size: 0.94rem;
+    margin: 0;
   }
   .card h2 {
     font-size: 1.05rem;
     margin-bottom: 0.6rem;
+    text-align: center;
+    width: 100%;
   }
   .card:hover {
     box-shadow: 0 8px 24px rgba(146,5,5,0.18);
@@ -72,8 +72,9 @@
 
   @media (max-width: 900px) {
     .sections {
-      grid-template-columns: 1fr;
-      justify-items: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
     }
     .card {
       max-width: 95vw;
@@ -95,5 +96,4 @@
     <h2>Recent Transactions</h2>
     <Transactions />
   </div>
-  <!-- Add more cards for Standings, Rosters, Awards, etc. as needed -->
 </div>
