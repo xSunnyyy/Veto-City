@@ -1,6 +1,5 @@
 <script>
   import { PowerRankings, Transactions } from '$lib/components';
-  // HomePost import removed, as blog card will be removed
 </script>
 
 <style>
@@ -53,12 +52,19 @@
     background: #fff;
     border-radius: 1.2rem;
     box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-    padding: 2rem 1.5rem;
+    padding: 1.2rem 1rem;
     transition: box-shadow 0.2s;
-    min-height: 250px;
+    min-height: 120px;
+    max-width: 340px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    font-size: 0.94rem;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    margin-bottom: 0.6rem;
   }
   .card:hover {
     box-shadow: 0 8px 24px rgba(146,5,5,0.18);
@@ -67,6 +73,10 @@
   @media (max-width: 900px) {
     .sections {
       grid-template-columns: 1fr;
+      justify-items: center;
+    }
+    .card {
+      max-width: 95vw;
     }
   }
 </style>
