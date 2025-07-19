@@ -1,12 +1,8 @@
 <script>
-    // Carousel props for slicing
-    export let start = 0;
-    export let count = null;
-
-    import { getNflState, getLeagueRosters, getLeagueTeamManagers, waitForAll, loadPlayers, getLeagueData } from '$lib/utils/helper';
+    import {getNflState, getLeagueRosters, getLeagueTeamManagers, waitForAll, loadPlayers, getLeagueData} from '$lib/utils/helper';
     import PowerRankingsDisplay from './PowerRankingsDisplay.svelte';
     import LinearProgress from '@smui/linear-progress';
-
+    
     const helperPromises = waitForAll(
         getNflState(),
         getLeagueRosters(),
@@ -14,6 +10,7 @@
         getLeagueData(),
         loadPlayers(null),
     );
+
 </script>
 
 <style>
@@ -26,30 +23,16 @@
 </style>
 
 {#await helperPromises}
+    <!-- promise is pending -->
     <div class="loading">
         <p>Calculating power rankings...</p>
         <LinearProgress indeterminate />
     </div>
 {:then [nflState, rostersData, leagueTeamManagers, leagueData, playersInfo]}
     {#if leagueData.status != 'pre_draft' && leagueData.status != 'complete'}
-        {#if count === null}
-            <PowerRankingsDisplay
-                {nflState}
-                {rostersData}
-                {leagueTeamManagers}
-                {leagueData}
-                {playersInfo}
-            />
-        {:else}
-            <PowerRankingsDisplay
-                {nflState}
-                rostersData={rostersData.slice(start, start + count)}
-                {leagueTeamManagers}
-                {leagueData}
-                {playersInfo}
-            />
-        {/if}
+        <PowerRankingsDisplay {nflState} {rostersData} {leagueTeamManagers} {leagueData} {playersInfo} />
     {/if}
 {:catch error}
-    <p>Something went wrong: {error.message}</p>
+	<!-- promise was rejected -->
+	<p>Something went wrong: {error.message}</p>
 {/await}
