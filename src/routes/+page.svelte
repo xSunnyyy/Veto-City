@@ -8,15 +8,12 @@
   :global(body) {
     margin: 0;
     padding: 0;
-    background: none;
+    background-color: #111; /* simple dark background */
     font-family: system-ui, sans-serif;
   }
 
   .page-wrapper {
-    background: linear-gradient(135deg, #1a1a1a 0%, #121212 50%, #0a0a0a 100%),
-                url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: #111;
     min-height: 100vh;
     padding: 2rem 1rem;
   }
@@ -27,13 +24,14 @@
     text-align: center;
     border-radius: 2rem;
     margin-bottom: 2.5rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    background-color: #1e1e1e;
   }
 
   .hero-title {
     font-size: 2.8rem;
     font-weight: 900;
-    margin-bottom: 2rem; /* Increased spacing here */
+    margin-bottom: 2rem;
     letter-spacing: 1px;
   }
 
@@ -65,11 +63,10 @@
   }
 
   .card {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background-color: #f3f3f3;
+    color: #000;
     border-radius: 1.2rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 1.2rem 1rem;
     width: 100%;
     max-width: 340px;
@@ -79,8 +76,6 @@
     align-items: stretch;
     font-size: 0.94rem;
     flex: 1 1 320px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
   }
 
   .card h2 {
@@ -95,7 +90,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    color: #fff;
   }
 
   @media (max-width: 1100px) {
