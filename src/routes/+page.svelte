@@ -14,12 +14,14 @@
     margin-bottom: 2.5rem;
     box-shadow: 0 8px 32px rgba(0,0,0,0.15);
   }
+
   .hero-title {
     font-size: 2.8rem;
     font-weight: 900;
     margin-bottom: 1rem;
     letter-spacing: 1px;
   }
+
   .cta-btn {
     background: #fff;
     color: #920505;
@@ -32,6 +34,7 @@
     box-shadow: 0 2px 8px rgba(146,5,5,0.09);
     transition: background 0.2s, color 0.2s;
   }
+
   .cta-btn:hover {
     background: #920505;
     color: #fff;
@@ -40,7 +43,7 @@
   .sections {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch; /* Ensure same height */
     gap: 2rem;
     margin-bottom: 2.5rem;
     width: 100%;
@@ -53,24 +56,32 @@
     box-shadow: 0 2px 12px rgba(0,0,0,0.07);
     padding: 1.2rem 1rem;
     transition: box-shadow 0.2s;
-    min-height: 120px;
-    max-width: 340px;
     width: 100%;
+    max-width: 340px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: stretch;
     font-size: 0.94rem;
-    margin: 0;
+    flex: 1 1 320px; /* Flex-grow for responsiveness */
   }
+
   .card h2 {
     font-size: 1.05rem;
     margin-bottom: 0.6rem;
     text-align: center;
     width: 100%;
   }
+
   .card:hover {
     box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  }
+
+  .card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   @media (max-width: 1100px) {
@@ -79,12 +90,14 @@
       gap: 1.2rem;
     }
   }
+
   @media (max-width: 900px) {
     .sections {
       flex-direction: column;
       align-items: center;
       gap: 1.5rem;
     }
+
     .card {
       max-width: 95vw;
     }
@@ -99,12 +112,20 @@
 <div class="sections">
   <div class="card">
     <h2>Power Rankings</h2>
-    <PowerRankings />
+    <div class="card-content">
+      <PowerRankings />
+    </div>
   </div>
   <div class="card">
-    <WaiverTransactions />
+    <h2>Recent Waiver Moves</h2>
+    <div class="card-content">
+      <WaiverTransactions />
+    </div>
   </div>
   <div class="card">
-    <TradeTransactions />
+    <h2>Recent Trades</h2>
+    <div class="card-content">
+      <TradeTransactions />
+    </div>
   </div>
 </div>
