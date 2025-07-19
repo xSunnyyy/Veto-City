@@ -25,27 +25,11 @@
   <LinearProgress indeterminate />
 {:else}
   {#if transactions.waivers.length}
-    <div class="waiver-wrapper">
-      {#each transactions.waivers as transaction}
-        <WaiverTransaction {players} {transaction} {leagueTeamManagers} />
-      {/each}
-    </div>
+    <h5>Waiver Moves</h5>
+    {#each transactions.waivers as transaction}
+      <WaiverTransaction {players} {transaction} {leagueTeamManagers} />
+    {/each}
   {:else}
     <p>No waiver moves have been made yet...</p>
   {/if}
 {/if}
-
-<style>
-  .waiver-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 0 1rem;
-  }
-
-  :global(.waiverTransaction) {
-    max-width: 300px;
-    width: 100%;
-  }
-</style>
