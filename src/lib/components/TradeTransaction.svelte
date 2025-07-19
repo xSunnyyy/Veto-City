@@ -1,151 +1,122 @@
 <script>
-	import { gotoManager } from '$lib/utils/helper';
-	import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
-	import TransactionMove from './TransactionMove.svelte';
+  import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
+  import TradeMove from './TradeMove.svelte';
 
-	export let transaction, players, leagueTeamManagers;
+  export let trade, players, leagueTeamManagers;
+  const teamA = trade.rosters[0];
+  const teamB = trade.rosters[1];
 </script>
 
 <style>
-	.tradeTransaction {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		max-width: 320px;
-		margin: 1rem auto;
-		padding: 1rem;
-		border-radius: 1rem;
-		background: #f8f8f8;
-		border: 1px solid #ddd;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-		color: #000;
-		overflow: hidden;
-	}
+  .trade-card {
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 1.2rem;
+    padding: 1rem;
+    margin: 1.5rem auto;
+    width: 100%;
+    max-width: 640px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
 
-	.name {
-		text-align: center;
-		font-size: 0.85rem;
-		font-weight: 600;
-		margin-bottom: 0.5rem;
-	}
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
 
-	.avatar {
-		border-radius: 50%;
-		height: 36px;
-		width: 36px;
-		border: 2px solid var(--blueOne);
-		background-color: #fff;
-	}
+  .team {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+    flex: 1;
+    justify-content: center;
+    flex-direction: column;
+  }
 
-	.ownerName {
-		display: inline-block;
-		font-weight: 500;
-		font-size: 0.85rem;
-		margin: 0.2em;
-		border-bottom: 2px solid var(--blueOne);
-	}
+  .team img {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    border: 2px solid #002244;
+  }
 
-	.currentOwner {
-		font-style: italic;
-		color: #888;
-		font-size: 0.65rem;
-	}
+  .team-name {
+    font-weight: bold;
+    font-size: 0.9rem;
+    border-bottom: 2px solid #002244;
+  }
 
-	.clickable {
-		cursor: pointer;
-	}
+  .moves {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #ddd;
+  }
 
-	.date {
-		color: #777;
-		font-style: italic;
-		font-size: 0.65rem;
-		text-align: center;
-		margin-top: 0.6rem;
-	}
+  .move-column {
+    flex: 1;
+  }
 
-	table {
-		width: 100%;
-		border-collapse: collapse;
-		table-layout: fixed;
-	}
+  .arrow {
+    font-size: 1.3rem;
+    color: #888;
+    text-align: center;
+    flex: 0 0 40px;
+    line-height: 1.6;
+  }
 
-	tbody {
-		border-top: 1px solid #ddd;
-	}
+  .date {
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    font-style: italic;
+    color: #777;
+    text-align: center;
+  }
 
-	.holder {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		height: 100%;
-		gap: 0.25rem;
-	}
+  @media (max-width: 500px) {
+    .trade-card {
+      padding: 0.75rem;
+    }
 
-	th.name {
-		font-weight: 600;
-		padding-bottom: 0.5rem;
-	}
+    .team-name {
+      font-size: 0.8rem;
+    }
 
-	@media (max-width: 420px) {
-		.ownerName {
-			font-size: 0.8rem;
-		}
-
-		.tradeTransaction {
-			max-width: 92vw;
-			padding: 0.8rem;
-		}
-	}
+    .arrow {
+      font-size: 1rem;
+    }
+  }
 </style>
 
-<div class="tradeTransaction">
-	<table>
-		<thead>
-			<tr>
-				{#each transaction.rosters as owner}
-					<th
-						class="name clickable"
-						style="width: {1 / transaction.rosters.length * 100}%"
-						on:click={() =>
-							gotoManager({
-								year: transaction.season,
-								leagueTeamManagers,
-								rosterID: owner
-							})
-						}
-					>
-						<div class="holder">
-							<img
-								class="avatar"
-								src="{getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).avatar}"
-								alt="{getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).name} avatar"
-							/>
-							<span class="ownerName">
-								{getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).name}
-								{#if getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).name !== getTeamFromTeamManagers(leagueTeamManagers, owner).name}
-									<br />
-									<span class="currentOwner">
-										({getTeamFromTeamManagers(leagueTeamManagers, owner).name})
-									</span>
-								{/if}
-							</span>
-						</div>
-					</th>
-				{/each}
-			</tr>
-		</thead>
-		<tbody>
-			{#each transaction.moves as move}
-				<TransactionMove
-					{players}
-					{move}
-					type={transaction.type}
-					{leagueTeamManagers}
-					season={transaction.season}
-				/>
-			{/each}
-		</tbody>
-	</table>
-	<span class="date">{transaction.date}</span>
+<div class="trade-card">
+  <div class="header">
+    <div class="team">
+      <img src={getTeamFromTeamManagers(leagueTeamManagers, teamA)?.avatar} alt="Team A" />
+      <div class="team-name">{getTeamFromTeamManagers(leagueTeamManagers, teamA)?.name}</div>
+    </div>
+    <div class="team">
+      <img src={getTeamFromTeamManagers(leagueTeamManagers, teamB)?.avatar} alt="Team B" />
+      <div class="team-name">{getTeamFromTeamManagers(leagueTeamManagers, teamB)?.name}</div>
+    </div>
+  </div>
+
+  <div class="moves">
+    <div class="move-column">
+      {#each trade.moves.filter(m => m[0]?.roster_id === teamA) as move}
+        <TradeMove move={move} players={players} />
+      {/each}
+    </div>
+    <div class="arrow">⇄</div>
+    <div class="move-column">
+      {#each trade.moves.filter(m => m[0]?.roster_id === teamB) as move}
+        <TradeMove move={move} players={players} />
+      {/each}
+    </div>
+  </div>
+
+  <div class="date">{trade.date}</div>
 </div>
