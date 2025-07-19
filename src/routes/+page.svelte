@@ -1,5 +1,5 @@
 <script>
-  import { PowerRankings } from '$lib/components';
+  import PowerRankings from '$lib/components/PowerRankings.svelte';
   import WaiverTransactions from '$lib/components/WaiverTransactions.svelte';
   import TradeTransactions from '$lib/components/TradeTransactions.svelte';
 </script>
