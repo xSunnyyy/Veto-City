@@ -111,19 +111,16 @@
 
 <div class="sections">
   <div class="card">
-    <h2>Power Rankings</h2>
     <div class="card-content">
       <PowerRankings />
     </div>
   </div>
   <div class="card">
-    <h2>Recent Waiver Moves</h2>
     <div class="card-content">
       <WaiverTransactions />
     </div>
   </div>
   <div class="card">
-    <h2>Recent Trades</h2>
     <div class="card-content">
       <TradeTransactions />
     </div>
