@@ -1,5 +1,4 @@
 <script>
-  import PowerRankings from '$lib/components/PowerRankings.svelte';
   import WaiverTransactions from '$lib/components/WaiverTransactions.svelte';
   import TradeTransactions from '$lib/components/TradeTransactions.svelte';
 </script>
@@ -117,11 +116,6 @@
   </div>
 
   <div class="sections">
-    <div class="card">
-      <div class="card-content">
-        <PowerRankings />
-      </div>
-    </div>
     <div class="card">
       <div class="card-content">
         <WaiverTransactions />
