@@ -1,22 +1,16 @@
-<style>
-  :global(body) {
-    margin: 0;
-    padding: 0;
-    background-color: #111; /* global black background */
-    font-family: system-ui, sans-serif;
-  }
+<!-- __layout.svelte -->
+<script>
+	import { Nav, Footer } from "$lib/components"
+    import { dev } from '$app/environment';
+    import { injectAnalytics } from '@vercel/analytics/sveltekit';
+ 
+    injectAnalytics({ mode: dev ? 'development' : 'production' });
+</script>
 
-  /* Only target these specific elements globally */
-  :global(h1),
-  :global(h5),
-  :global(span),
-  :global(input) {
-    color: white !important;
-  }
+<main>
+    <Nav /> <!-- adds the nav (small and large) -->
+  
+    <slot />
 
-  .page-wrapper {
-    background-color: #111;
-    min-height: 100vh;
-    padding: 2rem 1rem;
-  }
-</style>
+    <Footer /> <!-- adds the footer -->
+</main>
