@@ -27,3 +27,13 @@
 	}
 </style>
 
+<main>
+	<Nav />
+
+	<div class="page-wrapper">
+		<slot />
+	</div>
+
+	<Footer />
+</main>
+
