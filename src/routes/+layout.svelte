@@ -15,7 +15,9 @@
 	}
 
 	:global(h1),
+	:global(h3),
 	:global(h5),
+	:global(input),
 	:global(span) {
 		color: white;
 	}
