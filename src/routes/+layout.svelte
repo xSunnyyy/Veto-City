@@ -6,20 +6,22 @@
 	injectAnalytics({ mode: dev ? 'development' : 'production' });
 </script>
 
-<main class="page-wrapper">
-	<Nav />
-
-	<slot />
-
-	<Footer />
-</main>
-
 <style>
 	:global(body) {
 		margin: 0;
 		padding: 0;
-		background-color: #111; /* dark background */
+		background-color: #111; /* global black background */
 		font-family: system-ui, sans-serif;
+	}
+
+	/* GLOBAL HEADINGS COLOR */
+	:global(h1),
+	:global(h2),
+	:global(h3),
+	:global(h4),
+	:global(h5),
+	:global(h6) {
+		color: white;
 	}
 
 	.page-wrapper {
@@ -27,14 +29,14 @@
 		min-height: 100vh;
 		padding: 2rem 1rem;
 	}
-
-	/* Optional: make all text white by default */
-	:global(h1),
-	:global(h2),
-	:global(h3),
-	:global(h4),
-	:global(h5),
-	:global(h6),
-		color: white;
-	}
 </style>
+
+<main>
+	<Nav />
+
+	<div class="page-wrapper">
+		<slot />
+	</div>
+
+	<Footer />
+</main>
