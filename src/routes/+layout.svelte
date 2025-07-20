@@ -14,6 +14,12 @@
 		font-family: system-ui, sans-serif;
 	}
 
+	:global(h1),
+	:global(h5),
+	:global(span) {
+		color: white;
+	}
+
 	.page-wrapper {
 		background-color: #111;
 		min-height: 100vh;
@@ -21,12 +27,3 @@
 	}
 </style>
 
-<main>
-	<Nav />
-
-	<div class="page-wrapper">
-		<slot />
-	</div>
-
-	<Footer />
-</main>
