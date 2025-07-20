@@ -6,13 +6,11 @@
 <style>
   :global(body) {
     margin: 0;
-    padding: 0;
-    background-color: #111; /* simple dark background */
+    padding: 0; /* simple dark background */
     font-family: system-ui, sans-serif;
   }
 
   .page-wrapper {
-    background-color: #111;
     min-height: 100vh;
     padding: 2rem 1rem;
   }
