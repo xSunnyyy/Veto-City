@@ -15,10 +15,7 @@
 	}
 
 	/* GLOBAL HEADINGS COLOR */
-	:global(h1),
-	:global(h2),
-	:global(h3),
-	:global(h4) {
+	:global(h1) {
 		color: white;
 	}
 
