@@ -18,9 +18,7 @@
 	:global(h1),
 	:global(h2),
 	:global(h3),
-	:global(h4),
-	:global(h5),
-	:global(h6) {
+	:global(h4) {
 		color: white;
 	}
 
