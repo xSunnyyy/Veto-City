@@ -112,18 +112,6 @@
 <svelte:window bind:innerWidth={innerWidth} />
 
 <style>
-  :global(body) {
-    margin: 0;
-    padding: 0;
-    background-color: #111;
-    font-family: system-ui, sans-serif;
-  }
-  .page-wrapper {
-    background-color: #111;
-    min-height: 100vh;
-    padding: 2rem 1rem;
-  }
-
   .matchup {
         width: 95%;
         max-width: 600px;
