@@ -35,11 +35,6 @@
 	:global(h4),
 	:global(h5),
 	:global(h6),
-	:global(p),
-	:global(span),
-	:global(label),
-	:global(div),
-	:global(a) {
 		color: white;
 	}
 </style>
