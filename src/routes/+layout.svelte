@@ -18,6 +18,15 @@
 	:global(h1) {
 		color: white;
 	}
+  	:global(.transaction-date),
+  	:global(.timestamp),
+  	:global(.footer),
+  	:global(.pagination),
+ 	:global(.player-name),
+ 	:global(.player-meta),
+ 	:global(.username) {
+   		 color: white !important;
+  }
 
 	.page-wrapper {
 		background-color: #111;
