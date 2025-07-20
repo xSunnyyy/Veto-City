@@ -1,46 +1,22 @@
-<script>
-	import { Nav, Footer } from "$lib/components";
-	import { dev } from '$app/environment';
-	import { injectAnalytics } from '@vercel/analytics/sveltekit';
-
-	injectAnalytics({ mode: dev ? 'development' : 'production' });
-</script>
-
 <style>
-	:global(body) {
-		margin: 0;
-		padding: 0;
-		background-color: #111; /* global black background */
-		font-family: system-ui, sans-serif;
-	}
-
-	/* GLOBAL HEADINGS COLOR */
-	:global(h1) {
-		color: white;
-	}
-  	:global(.transaction-date),
-  	:global(.timestamp),
-  	:global(.footer),
-  	:global(.pagination),
- 	:global(.player-name),
- 	:global(.player-meta),
- 	:global(.username) {
-   		 color: white !important;
+  :global(body) {
+    margin: 0;
+    padding: 0;
+    background-color: #111; /* global black background */
+    font-family: system-ui, sans-serif;
   }
 
-	.page-wrapper {
-		background-color: #111;
-		min-height: 100vh;
-		padding: 2rem 1rem;
-	}
+  /* Only target these specific elements globally */
+  :global(h1),
+  :global(h5),
+  :global(span),
+  :global(input) {
+    color: white !important;
+  }
+
+  .page-wrapper {
+    background-color: #111;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
 </style>
-
-<main>
-	<Nav />
-
-	<div class="page-wrapper">
-		<slot />
-	</div>
-
-	<Footer />
-</main>
