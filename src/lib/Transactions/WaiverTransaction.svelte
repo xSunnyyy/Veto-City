@@ -108,7 +108,7 @@
     }
 
     .add {
-        color: #00ceb8;
+        color: var(--RB);
     }
 
     .drop {

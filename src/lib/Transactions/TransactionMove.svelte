@@ -73,7 +73,7 @@
 	}
 
 	.originalOwner {
-		color: #aaa;
+		color: var(--aaa);
 		font-style: italic;
 	}
 

@@ -83,7 +83,7 @@
         max-width: 200px;
         height: auto;
         margin: 5em auto 1em;
-        box-shadow: 0 0 8px 4px #aaa;
+        box-shadow: 0 0 8px 4px var(--aaa);
     }
 
     h2 {
@@ -109,7 +109,7 @@
     }
 
     .basicInfo span {
-        color: #888;
+        color: var(--g888);
         font-size: 0.9em;
     }
 
@@ -147,7 +147,7 @@
     .teamSub {
         font-size: 0.4em;
         line-height: 1em;
-        color: #666;
+        color: var(--g666);
     }
 
     .managerNav {
@@ -173,7 +173,7 @@
 
     .commissionerBadge span {
         font-style: normal;
-        color: #fff;
+        color: var(--fff);
     }
 
     /* media queries */

@@ -50,7 +50,7 @@
     position: absolute;
     bottom: 0;
     z-index: 1;
-    border-top: 1px solid #920505;
+    border-top: 1px solid var(--buttonPrimary);
     padding: 30px 0 60px;
     text-align: center;
     color: #bbb;
@@ -82,11 +82,11 @@
   }
 
   .navLink:hover {
-    color: #fff;
+    color: var(--fff);
   }
 
   .updateNotice {
-    color: #888;
+    color: var(--g888);
     font-style: italic;
     font-size: 0.8em;
     margin-top: 0;

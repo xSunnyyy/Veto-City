@@ -40,13 +40,13 @@
 
 <style>
     :global(.button) {
-        color: #aaa;
+        color: var(--aaa);
         cursor: pointer;
         vertical-align: sub;
     }
 
     :global(.button:hover) {
-        color: #0082c3;
+        color: var(--blueTwo);
     }
 
     .paginationBar {
@@ -61,7 +61,7 @@
     .pg {
         font-size: 1.2em;
         padding: .4em;
-        color: #aaa;
+        color: var(--aaa);
     }
     
     .spacer {
@@ -75,7 +75,7 @@
     }
 
     .dest:hover {
-        color: #0082c3;
+        color: var(--blueTwo);
     }
 
     .selected {

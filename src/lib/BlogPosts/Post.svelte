@@ -47,7 +47,7 @@
     }
 
     .button {
-        background-color: #0082c3;
+        background-color: var(--blueTwo);
         font-size: 1em;
         border-radius: 1em;
         text-decoration: none;
@@ -57,7 +57,7 @@
     }
 
     .button:hover {
-        background-color: #00316b;
+        background-color: var(--blueOne);
     }
 
     :global(.body blockquote) {
@@ -149,7 +149,7 @@
     :global(.body th) {
         padding: 0.8em 0;
         background-color: var(--blueOne);
-        color: #fff;
+        color: var(--fff);
     }
 
     .divider {

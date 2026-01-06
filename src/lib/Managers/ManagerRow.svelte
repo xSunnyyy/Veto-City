@@ -91,7 +91,7 @@
         justify-content: center;
         align-items: center;
         border-radius: 100%;
-        border: 1px solid #ccc;
+        border: 1px solid var(--ccc);
         overflow: hidden;
         background-color: var(--fff);
     }
@@ -225,7 +225,7 @@
     }
 
     .question {
-        background-color: #fff;
+        background-color: var(--fff);
     }
 </style>
 

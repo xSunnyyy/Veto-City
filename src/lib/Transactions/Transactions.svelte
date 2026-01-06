@@ -44,7 +44,7 @@
 	p {
 		text-align: center;
 		font-size: 0.95rem;
-		color: #ccc;
+		color: var(--ccc);
 	}
 
 	h5 {
@@ -75,7 +75,7 @@
 	.nothingYet {
 		margin: 4rem 0;
 		font-size: 1rem;
-		color: #999;
+		color: var(--g999);
 	}
 </style>
 

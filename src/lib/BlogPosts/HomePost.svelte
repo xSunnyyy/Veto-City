@@ -61,8 +61,8 @@
 
     .viewAll {
         text-decoration: none;
-        background-color: #920505;
-        color: #fff;
+        background-color: var(--buttonPrimary);
+        color: var(--fff);
         border-radius: 1em;
         padding: 0.5em 1em;
     }

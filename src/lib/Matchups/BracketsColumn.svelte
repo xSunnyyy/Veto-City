@@ -235,7 +235,7 @@
     }
 
     .bye {
-        color: #999;
+        color: var(--g999);
         font-style: italic;
     }
 
@@ -246,7 +246,7 @@
         width: 25px;
         margin: 0;
         border: 0.25px solid #777;
-        background-color: #eee;
+        background-color: var(--eee);
     }
 
     .points {
