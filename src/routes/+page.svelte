@@ -15,7 +15,7 @@
   }
 
   .hero {
-    color: #000;
+    color: var(--heroText);
     padding: 4rem 2rem 3rem 2rem;
     text-align: center;
     border-radius: 2rem;
@@ -30,8 +30,8 @@
   }
 
   .cta-btn {
-    background: #fff;
-    color: #920505;
+    background: var(--fff);
+    color: var(--buttonPrimary);
     border: none;
     border-radius: 2rem;
     padding: 0.75rem 2.5rem;
@@ -42,8 +42,8 @@
   }
 
   .cta-btn:hover {
-    background: #920505;
-    color: #fff;
+    background: var(--buttonPrimary);
+    color: var(--buttonText);
   }
 
   .sections {
