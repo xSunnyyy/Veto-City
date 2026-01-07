@@ -1,6 +1,6 @@
 <script>
-    import {round} from '$lib/utils/helper'
-	import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
+    import {round} from '$lib/utils/helpers/helper'
+	import { getTeamFromTeamManagers } from '$lib/utils/helpers/universalFunctions';
 
     export let matchup, players, active, ix, displayWeek, expandOverride=false, matchupWeek, leagueTeamManagers, year;
 

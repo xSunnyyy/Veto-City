@@ -1,6 +1,6 @@
 <script>
-    import { round } from "$lib/utils/helper";
-	import { getAvatarFromTeamManagers, getTeamNameFromTeamManagers } from "$lib/utils/helperFunctions/universalFunctions";
+    import { round } from "$lib/utils/helpers/helper";
+	import { getAvatarFromTeamManagers, getTeamNameFromTeamManagers } from "$lib/utils/helpers/universalFunctions";
 
     export let leagueTeamManagers, players, matchCol, playoffsStart, ix, playoffLength, consolation = false, losers = false, numRosters, consolationNum, selected;
 

@@ -9,7 +9,7 @@
   	import List, { Item, Text, Graphic, Separator, Subheader } from '@smui/list';
 	import { goto, preloadData } from '$app/navigation';
     import { page } from '$app/state';
-	import { leagueName } from '$lib/utils/helper';
+	import { leagueName } from '$lib/utils/helpers/helper';
 	import { enableBlog, managers } from '$lib/utils/leagueInfo';
 
 	let active = $state(page.url.pathname);

@@ -1,8 +1,8 @@
 import { leagueID, managers } from '$lib/utils/leagueInfo';
 import { get } from 'svelte/store';
 import { teamManagersStore } from '$lib/stores';
-import { waitForAll } from './multiPromise';
-import { getManagers, getTeamData } from './universalFunctions';
+import { waitForAll } from '$lib/utils/helpers/multiPromise';
+import { getManagers, getTeamData } from '$lib/utils/helpers/universalFunctions';
 import { getLeagueData } from './leagueData';
 
 export const getLeagueTeamManagers = async () => {

@@ -1,7 +1,7 @@
 <script>
   import { goto } from '$app/navigation';
   import { tabs } from '$lib/utils/tabs';
-  import { managers } from '$lib/utils/helper';
+  import { managers } from '$lib/utils/helpers/helper';
   import { onMount } from 'svelte';
 
   let outOfDate = false;

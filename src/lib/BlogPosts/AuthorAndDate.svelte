@@ -1,5 +1,5 @@
 <script>
-    import { parseDate, getAuthor, getAvatar } from "$lib/utils/helper";
+    import { parseDate, getAuthor, getAvatar } from "$lib/utils/helpers/helper";
 
     export let type, leagueTeamManagers, author, createdAt;
 </script>

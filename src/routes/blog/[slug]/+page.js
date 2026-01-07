@@ -1,5 +1,5 @@
 
-import { enableBlog, getBlogPosts, getLeagueTeamManagers } from '$lib/utils/helper';
+import { enableBlog, getBlogPosts, getLeagueTeamManagers } from '$lib/utils/helpers/helper';
 
 export function load({ fetch, params }) {
     if(!enableBlog) return false;

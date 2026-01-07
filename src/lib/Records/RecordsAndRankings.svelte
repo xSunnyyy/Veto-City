@@ -1,10 +1,10 @@
 <script>
     import Button, { Group, Label } from '@smui/button';
-    import { generateGraph } from '$lib/utils/helper';
+    import { generateGraph } from '$lib/utils/helpers/helper';
 
 	import RecordTable from './RecordTable.svelte';
 	import RankingTable from './RankingTable.svelte';
-	import BarChart from '$lib/BarChart.svelte';
+	import BarChart from '$lib/shared/components/BarChart.svelte';
 
     export let key, tradesData, waiversData, weekRecords, weekLows, seasonLongRecords, seasonLongLows, showTies, winPercentages, fptsHistories, lineupIQs, prefix, blowouts, closestMatchups, allTime=false, leagueTeamManagers;
 

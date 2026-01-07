@@ -1,7 +1,7 @@
 <script>
     import DataTable, { Head, Body, Row, Cell } from '@smui/data-table';
     import RecordTeam from './RecordTeam.svelte';
-    import { gotoManager, round } from '$lib/utils/helper';
+    import { gotoManager, round } from '$lib/utils/helpers/helper';
 
     export let data = [];
     export let title = "";

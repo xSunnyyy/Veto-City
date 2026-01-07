@@ -1,5 +1,5 @@
 <script>
-    import { generateParagraph } from "$lib/utils/helper";
+    import { generateParagraph } from "$lib/utils/helpers/helper";
     import { fly } from "svelte/transition";
 	import AuthorAndDate from "./AuthorAndDate.svelte";
 

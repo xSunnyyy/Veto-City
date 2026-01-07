@@ -2,7 +2,7 @@
     import { onMount } from "svelte";
 	import LinearProgress from '@smui/linear-progress';
     import Post from "./Post.svelte";
-    import { getBlogPosts, getLeagueTeamManagers, waitForAll } from "$lib/utils/helper";
+    import { getBlogPosts, getLeagueTeamManagers, waitForAll } from "$lib/utils/helpers/helper";
 
     const lang = "en-US";
 

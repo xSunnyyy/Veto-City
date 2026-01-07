@@ -1,7 +1,7 @@
 <script>
     import { goto } from "$app/navigation";
-    import Pagination from "$lib/Pagination.svelte";
-    import { getBlogPosts, leagueName, waitForAll } from "$lib/utils/helper";
+    import Pagination from "$lib/shared/components/Pagination.svelte";
+    import { getBlogPosts, leagueName, waitForAll } from "$lib/utils/helpers/helper";
     import LinearProgress from "@smui/linear-progress";
     import { onMount } from "svelte";
     import Post from "./Post.svelte";

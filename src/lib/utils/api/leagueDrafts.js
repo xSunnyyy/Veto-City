@@ -1,6 +1,6 @@
 import { getLeagueData } from './leagueData';
 import { leagueID } from '$lib/utils/leagueInfo';
-import { waitForAll } from './multiPromise';
+import { waitForAll } from '$lib/utils/helpers/multiPromise';
 import { get } from 'svelte/store';
 import {upcomingDraftStore, previousDraftsStore} from '$lib/stores';
 import { getLeagueRosters } from './leagueRosters';

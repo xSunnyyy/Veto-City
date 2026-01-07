@@ -1,5 +1,5 @@
 <script>
-    import { dues } from '$lib/utils/helper';
+    import { dues } from '$lib/utils/helpers/helper';
     let one, oneOne, oneOneOne, oneTwo, oneTwoOne, oneTwoTwo, oneTwoThree, oneTwoFour, oneTwoFive, oneThree;
     let two, twoOne, twoTwo, twoThree;
     let three, threeOne;

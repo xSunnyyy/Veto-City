@@ -1,7 +1,7 @@
 import contentful from 'contentful-management'
 import { json, error } from '@sveltejs/kit';
 
-import { getLeagueTeamManagers } from "$lib/utils/helper";
+import { getLeagueTeamManagers } from "$lib/utils/helpers/helper";
 
 const lang = "en-US";
 

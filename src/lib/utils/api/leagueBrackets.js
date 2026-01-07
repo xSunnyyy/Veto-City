@@ -1,7 +1,7 @@
 import { getLeagueData } from './leagueData';
 import { leagueID } from '$lib/utils/leagueInfo';
 import { getLeagueRosters } from './leagueRosters';
-import {waitForAll} from './multiPromise';
+import {waitForAll} from '$lib/utils/helpers/multiPromise';
 import { get } from 'svelte/store';
 import {bracketsStore} from '$lib/stores';
 

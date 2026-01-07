@@ -1,12 +1,12 @@
 <script>
-    import { round } from "$lib/utils/helper";
-	import { checkIfManagerReceivedAward, getTeamNameFromTeamManagers } from "$lib/utils/helperFunctions/universalFunctions";
+    import { round } from "$lib/utils/helpers/helper";
+	import { checkIfManagerReceivedAward, getTeamNameFromTeamManagers } from "$lib/utils/helpers/universalFunctions";
     import {
         computeAnnualAwards,
         computeAllTimeRecords,
         computeWeekRecords,
         computeSeasonRecords
-    } from "$lib/utils/awardProcessor";
+    } from "$lib/utils/processors/awardProcessor";
 
     export let awards, records, rosterID, tookOver, leagueTeamManagers, managerID;
 

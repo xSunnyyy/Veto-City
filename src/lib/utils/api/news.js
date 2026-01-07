@@ -1,4 +1,4 @@
-import { waitForAll } from './multiPromise';
+import { waitForAll } from '$lib/utils/helpers/multiPromise';
 import { get } from 'svelte/store';
 import {newsStore} from '$lib/stores';
 import { dynasty } from '$lib/utils/leagueInfo';

@@ -3,8 +3,8 @@
 	import LinearProgress from '@smui/linear-progress';
     import { onMount } from 'svelte';
     import DraftRow from './DraftRow.svelte';
-    import { gotoManager } from '$lib/utils/helper'
-	import { getAvatarFromTeamManagers, getTeamNameFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
+    import { gotoManager } from '$lib/utils/helpers/helper'
+	import { getAvatarFromTeamManagers, getTeamNameFromTeamManagers } from '$lib/utils/helpers/universalFunctions';
     
     export let draftData, leagueTeamManagers, previous = false, year, players;
 

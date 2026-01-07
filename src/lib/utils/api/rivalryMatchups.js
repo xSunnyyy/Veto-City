@@ -1,8 +1,8 @@
 import { getLeagueData } from "./leagueData"
 import { leagueID } from '$lib/utils/leagueInfo';
 import { getNflState } from "./nflState"
-import { waitForAll } from './multiPromise';
-import { getRosterIDFromManagerIDAndYear } from '$lib/utils/helperFunctions/universalFunctions';
+import { waitForAll } from '$lib/utils/helpers/multiPromise';
+import { getRosterIDFromManagerIDAndYear } from '$lib/utils/helpers/universalFunctions';
 import { getLeagueTeamManagers } from "./leagueTeamManagers";
 
 export const getRivalryMatchups = async (userOneID, userTwoID) => {

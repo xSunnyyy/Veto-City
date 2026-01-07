@@ -1,6 +1,6 @@
 import { managers as managersObj } from '$lib/utils/leagueInfo';
 import { goto } from "$app/navigation";
-import { stringDate } from './news';
+import { stringDate } from '../api/news';
 
 const QUESTION = 'managers/question.jpg';
 

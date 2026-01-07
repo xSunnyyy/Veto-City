@@ -1,4 +1,4 @@
-import { sortHighAndLow } from '../helperFunctions/universalFunctions';
+import { sortHighAndLow } from '../helpers/universalFunctions';
 
 /** this holds all the data and the functions necessary to compute a league's records (both per season, as well as for all-time) */
 export class Records {

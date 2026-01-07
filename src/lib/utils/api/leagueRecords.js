@@ -2,11 +2,11 @@ import { getLeagueData } from './leagueData';
 import { leagueID } from '$lib/utils/leagueInfo';
 import { getNflState } from './nflState';
 import { getLeagueRosters } from "./leagueRosters";
-import { waitForAll } from './multiPromise';
+import { waitForAll } from '$lib/utils/helpers/multiPromise';
 import { get } from 'svelte/store';
 import { recordsStore } from '$lib/stores';
-import { getManagers, round, sortHighAndLow } from './universalFunctions';
-import { Records } from '$lib/utils/dataClasses';
+import { getManagers, round, sortHighAndLow } from '$lib/utils/helpers/universalFunctions';
+import { Records } from '$lib/utils/models/dataClasses';
 import { getBrackets } from './leagueBrackets';
 import { browser } from '$app/environment';
 

@@ -1,5 +1,5 @@
-import { round } from "$lib/utils/helper";
-import { getTeamNameFromTeamManagers } from "$lib/utils/helperFunctions/universalFunctions";
+import { round } from "$lib/utils/helpers/helper";
+import { getTeamNameFromTeamManagers } from "$lib/utils/helpers/universalFunctions";
 
 /**
  * Computes annual awards (champion, second place, division champions, etc.)

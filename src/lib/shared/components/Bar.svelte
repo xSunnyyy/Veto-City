@@ -1,5 +1,5 @@
 <script>
-	import { getAvatarFromTeamManagers, getTeamNameFromTeamManagers, gotoManager, round } from "./utils/helperFunctions/universalFunctions";
+	import { getAvatarFromTeamManagers, getTeamNameFromTeamManagers, gotoManager, round } from "$lib/utils/helpers/universalFunctions";
 
 
     let {leagueTeamManagers, stat, label, xMin, xMax, secondStat, managerID, rosterID, color, year} = $props();
