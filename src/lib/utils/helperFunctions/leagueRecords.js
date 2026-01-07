@@ -4,7 +4,7 @@ import { getNflState } from './nflState';
 import { getLeagueRosters } from "./leagueRosters";
 import { waitForAll } from './multiPromise';
 import { get } from 'svelte/store';
-import { records } from '$lib/stores';
+import { recordsStore } from '$lib/stores';
 import { getManagers, round, sortHighAndLow } from './universalFunctions';
 import { Records } from '$lib/utils/dataClasses';
 import { getBrackets } from './leagueBrackets';
@@ -17,8 +17,8 @@ import { browser } from '$app/environment';
  */
 export const getLeagueRecords = async (refresh = false) => {
 	// records temporarily cached for an individual session
-	if(get(records).leagueWeekHighs) {
-		return get(records);
+	if(get(recordsStore).leagueWeekHighs) {
+		return get(recordsStore);
 	}
 
 	// if this isn't a refresh data call, check if there are already
@@ -113,8 +113,8 @@ export const getLeagueRecords = async (refresh = false) => {
     if(browser) {
         // update localStorage
         localStorage.setItem("records", JSON.stringify(recordsData));
-    
-        records.update(() => recordsData);
+
+        recordsStore.update(() => recordsData);
     }
 
 	return recordsData;

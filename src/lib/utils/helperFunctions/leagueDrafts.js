@@ -2,12 +2,12 @@ import { getLeagueData } from './leagueData';
 import { leagueID } from '$lib/utils/leagueInfo';
 import { waitForAll } from './multiPromise';
 import { get } from 'svelte/store';
-import {upcomingDraft, previousDrafts} from '$lib/stores';
+import {upcomingDraftStore, previousDraftsStore} from '$lib/stores';
 import { getLeagueRosters } from './leagueRosters';
 
 export const getUpcomingDraft = async () => {
-	if(get(upcomingDraft).draft) {
-		return get(upcomingDraft);
+	if(get(upcomingDraftStore).draft) {
+		return get(upcomingDraftStore);
 	}
     const [rosterRes, leagueData] = await waitForAll(
 		getLeagueRosters(),
@@ -55,8 +55,8 @@ export const getUpcomingDraft = async () => {
 		draftType: officialDraft.type,
 		reversalRound: officialDraft.settings.reversal_round,
 	}
-	
-	upcomingDraft.update(() => draftData);
+
+	upcomingDraftStore.update(() => draftData);
 
 	return draftData;
 }
@@ -184,8 +184,8 @@ const completedAuction = ({players, draft, draftOrder, draftOrderObj}) => {
 }
 
 export const getPreviousDrafts = async () => {
-	if(get(previousDrafts).length > 0) {
-		return get(previousDrafts);
+	if(get(previousDraftsStore).length > 0) {
+		return get(previousDraftsStore);
 	}
 	let curSeason = leagueID;
 
@@ -236,10 +236,10 @@ export const getPreviousDrafts = async () => {
         
             drafts.push(newDraft);
         }
-	
+
 	}
-	
-	previousDrafts.update(() => drafts);
+
+	previousDraftsStore.update(() => drafts);
 
 	return drafts;
 }

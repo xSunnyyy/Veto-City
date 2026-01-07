@@ -1,11 +1,11 @@
 import { get } from 'svelte/store';
-import {players} from '$lib/stores';
+import {playersStore} from '$lib/stores';
 import { browser } from '$app/environment';
 
-export const loadPlayers = async (servFetch, refresh = false) => {     
-	if(get(players)[1426]) {
+export const loadPlayers = async (servFetch, refresh = false) => {
+	if(get(playersStore)[1426]) {
 		return {
-            players: get(players),
+            players: get(playersStore),
             stale: false
         };
 	}
@@ -41,9 +41,9 @@ export const loadPlayers = async (servFetch, refresh = false) => {
             const ts = Math.round(new Date().getTime() / 1000);
             const newExpiration = ts + (24 * 3600);
 
-            localStorage.setItem("expiration", newExpiration)  
+            localStorage.setItem("expiration", newExpiration)
 
-            players.update(() => data);
+            playersStore.update(() => data);
         }
 
         return {
@@ -51,7 +51,7 @@ export const loadPlayers = async (servFetch, refresh = false) => {
             stale: false
         };
     }
-    players.update(() => playersInfo);
+    playersStore.update(() => playersInfo);
     return {
         players: playersInfo,
         stale: false

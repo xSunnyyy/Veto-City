@@ -2,11 +2,11 @@ import { getLeagueData } from './leagueData';
 import { getLeagueRosters } from './leagueRosters';
 import { waitForAll } from './multiPromise';
 import { get } from 'svelte/store';
-import { awards } from '$lib/stores';
+import { awardsStore } from '$lib/stores';
 
 export const getAwards = async () => {
-	if(get(awards).length) {
-		return get(awards);
+	if(get(awardsStore).length) {
+		return get(awardsStore);
 	}
 	const leagueData = await getLeagueData().catch((err) => { console.error(err); });
 
@@ -14,7 +14,7 @@ export const getAwards = async () => {
 
 	const podiums = await getPodiums(previousSeasonID);
 
-	awards.update(() => podiums);
+	awardsStore.update(() => podiums);
 
 	return podiums;
 }

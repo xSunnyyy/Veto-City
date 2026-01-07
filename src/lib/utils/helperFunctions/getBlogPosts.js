@@ -1,9 +1,9 @@
 import { get } from 'svelte/store';
-import {posts} from '$lib/stores';
+import {postsStore} from '$lib/stores';
 
 export const getBlogPosts = async (servFetch, bypass = false) => {
-	if(get(posts)[0]?.items && !bypass) {
-		return {posts: get(posts), fresh: false};
+	if(get(postsStore)[0]?.items && !bypass) {
+		return {posts: get(postsStore), fresh: false};
 	}
     const smartFetch = servFetch ?? fetch;
     
@@ -12,8 +12,8 @@ export const getBlogPosts = async (servFetch, bypass = false) => {
 	if(!res.ok) {
 		const errs = await res.text();
 		console.error(errs);
-		if(get(posts)[0]?.items) {	
-			return {posts: get(posts), fresh: true}
+		if(get(postsStore)[0]?.items) {
+			return {posts: get(postsStore), fresh: true}
 		}
 		return {posts: [], fresh: true}
 	}
@@ -23,7 +23,7 @@ export const getBlogPosts = async (servFetch, bypass = false) => {
 	// sort the results by create date
 	const finalPosts = [...newPosts.items].sort((a, b) => Date.parse(b.sys.createdAt) - Date.parse(a.sys.createdAt));
 
-	posts.update(() => finalPosts);
+	postsStore.update(() => finalPosts);
 
 	return {posts: finalPosts, fresh: true};
 }
