@@ -1,5 +1,5 @@
 import {getLeagueData} from '$lib/utils/api/leagueData';
-import {dues, leagueID, leagueName, dynasty, managers, homepageText, enableBlog} from '$lib/utils/leagueInfo';
+import {dues, leagueID, leagueName, dynasty, managers, homepageText} from '$lib/utils/leagueInfo';
 import {getLeagueTransactions} from '$lib/utils/api/leagueTransactions';
 import {getNflState} from '$lib/utils/api/nflState';
 import {getLeagueRosters} from '$lib/utils/api/leagueRosters';
@@ -15,11 +15,9 @@ import { getAwards } from '$lib/utils/api/leagueAwards'
 import { cleanName, round, generateGraph, getTeamFromTeamManagers, gotoManager, getAuthor, parseDate, getAvatar } from '$lib/utils/helpers/universalFunctions';
 import { predictScores } from '$lib/utils/processors/predictOptimalScore';
 import { getBrackets } from '$lib/utils/api/leagueBrackets';
-import { getBlogPosts, generateParagraph } from '$lib/utils/api/getBlogPosts';
 import { getLeagueStandings } from '$lib/utils/api/leagueStandings';
 
 export {
-    enableBlog,
     homepageText,
     gotoManager,
     managers,
@@ -46,8 +44,6 @@ export {
     stringDate,
     getBrackets,
     generateGraph,
-    getBlogPosts,
-    generateParagraph,
     predictScores,
     getLeagueStandings,
     getAuthor,

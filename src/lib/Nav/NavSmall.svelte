@@ -10,7 +10,7 @@
 	import { goto, preloadData } from '$app/navigation';
     import { page } from '$app/state';
 	import { leagueName } from '$lib/utils/helpers/helper';
-	import { enableBlog, managers } from '$lib/utils/leagueInfo';
+	import { managers } from '$lib/utils/leagueInfo';
 
 	let active = $state(page.url.pathname);
 
@@ -72,7 +72,7 @@
 	<Content>
 		<List>
 			{#each tabs as tab}
-				{#if !tab.nest && (tab.label != 'Blog' || (tab.label == 'Blog' && enableBlog))}
+				{#if !tab.nest}
 					<Item href="javascript:void(0)" onSMUIAction={() => selectTab(tab)} ontouchstart={() => preloadData(tab.dest)} onmouseover={() => preloadData(tab.dest)} activated={active == tab.dest} >
 						<Graphic class="material-icons{active == tab.dest ? "" : " nav-item"}" aria-hidden="true">{tab.icon}</Graphic>
 						<Text class="{active == tab.dest ? "" : "nav-item"}">{tab.label}</Text>

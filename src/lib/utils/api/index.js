@@ -1,5 +1,4 @@
 // API fetching functions barrel export
-export { getBlogPosts } from './getBlogPosts';
 export { getLeagueAwards } from './leagueAwards';
 export { getLeagueBrackets } from './leagueBrackets';
 export { getLeagueData } from './leagueData';

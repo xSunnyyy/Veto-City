@@ -76,11 +76,8 @@ export const awardsStore = writable({});
 
 // ============================================================================
 // CONTENT STORES
-// Blog posts, news, and external content
+// News and external content
 // ============================================================================
 
 /** @type {import('svelte/store').Writable<Array>} News articles from RSS feeds */
 export const newsStore = writable([]);
-
-/** @type {import('svelte/store').Writable<Array>} Blog posts from Contentful */
-export const postsStore = writable([]);

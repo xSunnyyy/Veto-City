@@ -58,8 +58,6 @@
   "type": "module",
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
-    "contentful": "^11.10.1",
-    "contentful-management": "^11.67.0",
     "fast-xml-parser": "^5.3.3",
     "fuzzyjs": "^5.0.1"
   },
