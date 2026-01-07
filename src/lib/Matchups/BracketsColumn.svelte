@@ -22,7 +22,7 @@
                 case 3:
                     label = 'Quarterfinals'
                     break;
-                case 3:
+                case 4:
                     label = 'Eighth-Finals'
                     break;
             

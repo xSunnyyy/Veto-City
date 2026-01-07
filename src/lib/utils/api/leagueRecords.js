@@ -6,7 +6,7 @@ import { waitForAll } from '$lib/utils/helpers/multiPromise';
 import { get } from 'svelte/store';
 import { recordsStore } from '$lib/stores';
 import { getManagers, round, sortHighAndLow } from '$lib/utils/helpers/universalFunctions';
-import { Records } from '$lib/utils/models/dataClasses';
+import { Records } from '$lib/utils/models/records';
 import { getBrackets } from './leagueBrackets';
 import { browser } from '$app/environment';
 
